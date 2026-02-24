@@ -1,0 +1,157 @@
+.home-wrapper {
+  padding: 32px 48px;
+  max-width: 1200px;
+  margin: auto;
+  background: var(--bg-soft);
+}
+
+/* CATEGORY */
+.category-section {
+  margin-bottom: 42px;
+}
+
+.category-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary-dark-2);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.category-title::after {
+  content: "";
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  border-radius: 10px;
+}
+
+/* EMPTY */
+.empty-text {
+  color: var(--text-dark);
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+/* SOFTWARE ROW */
+.software-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* CARD */
+.software-card {
+  width: 340px;
+  padding: 18px;
+  border-radius: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary-dark-2)
+  );
+
+  color: var(--bg-white);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.software-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px rgba(0, 179, 179, 0.35);
+}
+
+/* LOGO */
+.software-card img {
+  width: 52px;
+  height: 52px;
+  padding: 6px;
+  background: var(--bg-white);
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* INFO */
+.software-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.version {
+  font-size: 12px;
+  color: var(--accent-light);
+  margin-top: 2px;
+}
+
+.desc {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ACTIONS */
+.actions {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions a {
+  color: var(--accent);
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.actions a:hover {
+  color: var(--accent-light);
+  transform: scale(1.15);
+}
+/* FULL WIDTH PAGE */
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-soft);
+}
+
+/* NO CENTERED CONTAINER */
+.software-section {
+  width: 100%;
+  padding: 32px 64px;
+}
+
+/* GRID THAT USES SCREEN SPACE */
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+/* CATEGORY HEADERS */
+.category-title {
+  color: var(--primary-dark);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.category-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin-top: 6px;
+}

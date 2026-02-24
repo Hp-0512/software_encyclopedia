@@ -1,0 +1,103 @@
+/* 
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #293073;
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
+.admin-header span {
+  background: #14b8a6;
+  padding: 5px 12px;
+  width: 200px;
+  border-radius: 20px;
+  font-size: 14px;
+} */
+
+/* .admin-header {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 28px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  margin-bottom: 40px;
+}
+
+.admin-header span {
+  background: linear-gradient(135deg, #00b3b3, #00d1d1);
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.admin-header h2 {
+  color: var(--primary-dark);
+  font-weight: 600;
+} */
+/* 
+.admin-header span {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  padding: 6px 16px;
+  min-width: 180px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+} */
+.admin-header {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  margin-bottom: 35px;
+}
+
+.admin-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #293073;
+}
+
+/* Right side container */
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+/* Avatar circle */
+.admin-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00b3b3, #00d1d1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+}
+
+/* Name badge */
+.admin-name {
+  background: linear-gradient(135deg, #00b3b3, #00d1d1);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}

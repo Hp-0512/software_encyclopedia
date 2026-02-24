@@ -1,0 +1,407 @@
+/* PAGE */
+.software-page {
+  padding: 36px 64px;
+  background: var(--bg-soft);
+}
+
+/* CATEGORY */
+.category-section {
+  margin-bottom: 56px;
+}
+
+.category-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.category-title::after {
+  content: "";
+  width: 42px;
+  height: 3px;
+  background: var(--accent);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  border-radius: 10px;
+}
+
+/* ROW */
+.software-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 10px 0;
+}
+@media (max-width: 1100px) {
+  .software-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .software-row {
+    grid-template-columns: 1fr;
+  }
+}
+.expiry-badge {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.expiry-badge.danger {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+}
+
+
+
+/* FLIP CARD */
+.flip-card {
+  width: 90%;
+  height: 280px;
+  perspective: 1200px;
+}
+
+.flip-inner {
+  position: relative;
+  height: 90%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* CARD BASE */
+.software-card {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  backface-visibility: hidden;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary-dark-2)
+  );
+  color: white;
+  padding: 20px;
+  border-radius: 22px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.3);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* FRONT & BACK */
+.flip-front {
+  position: relative;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* TOP */
+.software-top {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.software-logo {
+  width: 52px;
+  height: 52px;
+  padding: 6px;
+  background: #fff;
+  border-radius: 14px;
+  object-fit: contain;
+}
+
+.software-top h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* VERSION */
+.version-badge {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  color: var(--accent-light);
+}
+
+/* SHORT DESCRIPTION — EXACT 3 LINES */
+.software-desc {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: 0.9;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  min-height: calc(1.45em * 3); /* 🔑 SAME HEIGHT ALWAYS */
+}
+
+/* BACK DESCRIPTION */
+.long-desc {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.95;
+
+  max-height: 140px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+
+/* ACTIONS */
+.software-actions {
+  margin-top: auto; /* 🔑 LOCK BUTTON POSITION */
+}
+
+.primary-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.download-btn,
+.website-btn {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.download-btn {
+  background: var(--accent);
+  color: #fff;
+}
+
+.download-btn:hover {
+  background: var(--accent-light);
+}
+
+.website-btn {
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+}
+
+.website-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* VIEW BUTTON */
+.details-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--accent-light);
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.avg-rating {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #f4c430;
+}
+
+.avg-rating span {
+  color: rgba(255,255,255,0.7);
+  margin-left: 4px;
+}
+
+.top-rated-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+
+.loader {
+  text-align: center;
+  padding: 60px 20px;
+  color: #555;
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border: 4px solid #ddd;
+  border-top: 4px solid var(--primary-dark);
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.9s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* VERSION + AVG RATING INLINE */
+.version-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.avg-rating-inline {
+  font-size: 12px;
+  color: #f4c150;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-count {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+}
+
+
+
+/* Fade animation */
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* Confirmation Modal */
+.confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirm-modal {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  padding: 6px 14px;
+  background: #ccc;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.confirm-btn {
+  padding: 6px 14px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+.expiry-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  background: #eaf4ff;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.expiry-warning {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.expiry-danger {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+
+/* Auto fade when 1 day left */
+.expiring-soon {
+  opacity: 0.6;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: pulseFade 2s infinite;
+}
+
+/* subtle breathing warning effect */
+@keyframes pulseFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(0.98);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}

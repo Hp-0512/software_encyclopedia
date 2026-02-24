@@ -1,0 +1,114 @@
+/* ===== MAIN CONTAINER ===== */
+.quiz-analytics-container {
+  padding: 40px;
+  min-height: 80vh;
+  background: #f5f7fa;
+}
+
+/* ===== TITLE ===== */
+.quiz-analytics-container h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #2b4eff;
+}
+
+/* ===== LOADING / EMPTY STATE ===== */
+.quiz-loading,
+.no-results {
+  text-align: center;
+  padding: 60px;
+  font-size: 16px;
+  color: #777;
+}
+
+/* ===== TABLE WRAPPER (Horizontal Scroll) ===== */
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== TABLE ===== */
+.quiz-table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+}
+
+/* ===== HEADER ===== */
+.quiz-table thead {
+  /* background: linear-gradient(135deg, #2b4eff, #5f7dff); */
+  background-color: #444;
+  color: rgb(236, 26, 26);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.quiz-table th {
+  padding: 16px 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+/* ===== BODY ===== */
+.quiz-table td {
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+}
+
+/* ===== ROW STYLE ===== */
+.quiz-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.quiz-table tbody tr:hover {
+  background: #4cf603;
+  transform: scale(1.002);
+}
+
+/* Remove last border */
+.quiz-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* ===== PERCENTAGE STYLE ===== */
+.percentage {
+  font-weight: 900;
+  color: rgba(22, 5, 250, 0.989);
+}
+
+/* ===== OPTIONAL: SCORE COLOR LOGIC (You Can Use Later) ===== */
+/*
+.low-score {
+  color: #ff4d4f;
+}
+
+.medium-score {
+  color: #faad14;
+}
+
+.high-score {
+  color: #52c41a;
+}
+*/
+
+/* ===== SCROLLBAR STYLE ===== */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}

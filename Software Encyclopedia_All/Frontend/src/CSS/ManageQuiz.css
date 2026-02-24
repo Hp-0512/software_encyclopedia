@@ -1,0 +1,126 @@
+/* ===== Container ===== */
+
+* {
+  box-sizing: border-box;
+  /* width: 100%; */
+}
+
+/* .quiz-container {
+  padding: 30px;
+} */
+.quiz-container {
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Card Design ===== */
+/* .quiz-card {
+  margin-left: 50px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+} */
+
+.quiz-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0 auto; /* center the card */
+}
+
+/* ===== Header Section ===== */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.quiz-header h2 {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* ===== Dropdown ===== */
+.category-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-select:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 5px rgba(78, 115, 223, 0.4);
+}
+
+/* ===== Table Styling ===== */
+/* .table-wrapper {
+  overflow-x: auto;
+} */
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+.quiz-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.quiz-table thead {
+  background: #f4f6f9;
+}
+
+.quiz-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  /* color: #333;
+  border-bottom: 2px solid #e0e0e0; */
+  background: #2c3e50;
+  color: white;
+}
+
+.quiz-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* .quiz-table tbody tr:hover {
+  background: #f9fbff;
+  transition: 0.2s;
+} */
+
+/* ===== Empty Message ===== */
+.message-cell {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+  font-weight: 500px;
+}
+
+/* ===== Delete Button ===== */
+.deleted-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  border: 1px solid red;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+.deleted-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}

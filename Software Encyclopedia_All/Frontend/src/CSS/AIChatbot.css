@@ -1,0 +1,123 @@
+/* Floating chatbot button */
+.chatbot-float-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #1c2b6a;
+  color: white;
+  font-size: 26px;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* Chatbot main box */
+.chatbot-box {
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  width: 360px;
+  height: 480px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* Header */
+.chatbot-header {
+  background: #1c2b6a;
+  color: white;
+  padding: 12px 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Messages container */
+.chatbot-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  background: #f4f6ff;
+}
+
+/* Message wrapper */
+.chatbot-msg-row {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.chatbot-msg-row.user {
+  justify-content: flex-end;
+}
+
+.chatbot-msg-row.bot {
+  justify-content: flex-start;
+}
+
+/* Message bubble */
+.chatbot-msg {
+  padding: 10px 12px;
+  border-radius: 12px;
+  max-width: 80%;
+  font-size: 14px;
+  white-space: pre-line;
+}
+
+/* User bubble */
+.chatbot-msg.user {
+  background: #1c2b6a;
+  color: white;
+}
+
+/* Bot bubble */
+.chatbot-msg.bot {
+  background: white;
+  color: #222;
+}
+
+/* Input section */
+.chatbot-input-area {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: white;
+}
+
+.chatbot-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.chatbot-send-btn {
+  background: #1c2b6a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.chatbot-send-btn:hover {
+  opacity: 0.9;
+}

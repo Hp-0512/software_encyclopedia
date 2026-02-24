@@ -1,0 +1,36 @@
+.reviews-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* single review */
+.mini-review-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 12px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+
+/* stars */
+.mini-stars {
+  color: #f4b400;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+/* review text */
+.mini-review-text {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* states */
+.reviews-loading,
+.reviews-empty {
+  font-size: 12px;
+  opacity: 0.7;
+  text-align: center;
+}

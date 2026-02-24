@@ -1,0 +1,269 @@
+.manage-container {
+  padding: 30px;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.add-btn {
+  background: #4e73df;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #2e59d9;
+}
+
+.message-row {
+  text-align: center;
+  padding: 25px;
+  font-weight: 500;
+  color: #666;
+}
+
+.table-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.software-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.software-table th {
+  background: #2c3e50;
+  color: white;
+  padding: 12px;
+}
+
+.software-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.software-table tr:hover {
+  background: #f9fbff;
+}
+
+/* .actions {
+  display: flex; 
+  align-items: center;
+  gap: 8px;
+}
+.actions button {
+  margin-right: 8px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.actions button:first-child {
+  background: #1cc88a;
+  color: white;
+}
+
+.del {
+  background: #e74a3b;
+  color: white;
+} */
+
+/* .action-buttons {
+  align-items: center;
+}
+
+.edit-btn {
+  width: 10px;
+  padding: 5px;
+  border: 1px solid green;
+  border-radius: 7px;
+  color: #1cc88a;
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 18px;
+}
+.delete-btn {
+  width: 10px;
+  padding: 7px;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: #e74a3b;
+  cursor: pointer;
+  font-size: 18px;
+  
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px; 
+} */
+
+.action-buttons {
+  display: flex; /* IMPORTANT */
+  align-items: center;
+  gap: 12px; /* space between buttons */
+}
+
+/* EDIT BUTTON */
+.edit-btn {
+  padding: 6px 14px;
+  border: 1px solid #1cc88a;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #1cc88a;
+  color: white;
+}
+
+/* DELETE BUTTON */
+.deleted-btn {
+  padding: 6px 14px;
+  border: 1px solid #e74a3b;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.deleted-btn:hover {
+  background-color: #e74a3b;
+  color: white;
+}
+
+/* Edit button
+.edit-btn {
+  background: #1cc88a;
+  color: white;
+}
+
+
+
+.cancel-delete {
+  border: 1px solid black;
+  margin-right: 35px;
+} */
+
+.delete-buttons {
+  display: flex;
+  justify-content: center; /* center buttons */
+  gap: 35px; /* space between buttons */
+  margin-top: 15px;
+}
+
+.confirm-delete {
+  background: #e74a3b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 120px;
+}
+.cancel-delete {
+  background: #858796;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 150px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal,
+.delete-modal {
+  background: white;
+  padding: 25px;
+  width: 850px;
+  margin-left: 150px;
+  /* margin-top: 50px; */
+  border: 2px solid #293073;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 10px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.software-form input,
+.software-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.save-btn {
+  background: #4e73df;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.cancel-btn {
+  background: #858796;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.del-confirm {
+  background: #e74a3b;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

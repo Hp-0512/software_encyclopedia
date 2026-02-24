@@ -1,0 +1,74 @@
+.rating-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.rating-modal {
+  width: 320px;
+  background: #fff;
+  border-radius: 22px;
+  padding: 20px;
+  text-align: center;
+}
+
+.rating-logo {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.rating-desc {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.stars {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.star {
+  cursor: pointer;
+  color: #ccc;
+}
+
+.star.active {
+  color: #f5b301;
+}
+
+textarea {
+  width: 100%;
+  height: 70px;
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.rating-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.rating-actions button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.rating-actions button:first-child {
+  background: #0fb9b1;
+  color: #fff;
+}
+
+.rating-actions .cancel {
+  margin-left: 10px;
+  background: #eee;
+}
