@@ -36,6 +36,21 @@ router.get("/", async (req, res) => {
   res.send(data);
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const snapshot = await db.collection("categories").get();
+
+    const data = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    res.json(data);
+  } catch (error) {
+    console.error("Categories API error:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
 //Update Category
 router.put("/:id", async (req, res) => {
   try {

@@ -28,6 +28,7 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+
 // app.use(cors({
 //   origin: [
 //     "http://localhost:5173",
