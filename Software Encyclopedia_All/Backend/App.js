@@ -11,7 +11,10 @@ const ImageKit = require("imagekit");
 
 const communityRoutes = require("./routes/ManageCommunity");
 app.use(cors({
-  origin: "https://software-encyclopedia-yqun.vercel.app", // Allow your React app
+  origin: [
+    "http://localhost:5173",
+    "https://software-encyclopedia-yqun.vercel.app"
+  ],
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 }));
