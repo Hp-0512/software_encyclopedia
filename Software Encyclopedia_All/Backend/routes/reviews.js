@@ -6,7 +6,6 @@ router.get("/", async (req, res) => {
   try {
     const snapshot = await db
       .collection("Ratings")
-      .orderBy("createdAt", "desc")
       .get();
 
     const reviews = snapshot.docs
