@@ -53,10 +53,14 @@ app.get("/auth", (req, res) => {
 //for community
 app.use("/api/community", require("./routes/ManageCommunity"));
 
-const PORT = 5000;
-app.listen(PORT, () =>
-  console.log(`Server running on port ${PORT}`)
-);
+// const PORT = 5000;
+// app.listen(PORT, () =>
+//   console.log(`Server running on port ${PORT}`)
+// );
+const PORT = process.env.PORT || 5000;
 
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
+});
 
 
