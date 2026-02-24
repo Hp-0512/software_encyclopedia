@@ -37,8 +37,8 @@ const Softwares = () => {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      axios.get("http://software-encyclopedia-1.onrender.com/api/categories"),
-      axios.get("http://software-encyclopedia-1.onrender.com/api/softwares"),
+      axios.get("https://software-encyclopedia-1.onrender.com/api/categories"),
+      axios.get("https://software-encyclopedia-1.onrender.com/api/softwares"),
     ])
       .then(([catRes, softRes]) => {
         setCategories(catRes.data);
@@ -56,7 +56,7 @@ const Softwares = () => {
     Promise.all(
       softwares.map((s) =>
         axios.get(
-          "http://software-encyclopedia-1.onrender.com/api/ratings/average",
+          "https://software-encyclopedia-1.onrender.com/api/ratings/average",
           {
             params: { softwareName: s.SoftwareName },
           },
