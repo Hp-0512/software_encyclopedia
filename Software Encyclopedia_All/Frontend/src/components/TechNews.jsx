@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import NewsRowCard from "./NewsRowCard";
 import Header from "./Header";
@@ -10,7 +9,9 @@ const TechNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/news/tech-news");
+        const res = await fetch(
+          "http://software-encyclopedia-1.onrender.com/api/news/tech-news",
+        );
         const data = await res.json();
         setNews(data.articles || []);
       } catch (err) {
@@ -27,20 +28,19 @@ const TechNews = () => {
 
   return (
     <>
-    <Header/>
-    <div className="news-container">
-      <h2>Latest Technology & IT News</h2>
+      <Header />
+      <div className="news-container">
+        <h2>Latest Technology & IT News</h2>
 
-      {news.length === 0 && <p>No news available</p>}
+        {news.length === 0 && <p>No news available</p>}
 
-      {news.map((article) => (
-        <NewsRowCard key={article.id} article={article} />
-      ))}
-      {/* <div className="imgstyle" style={{ height:"250px", width:"300px", alignContent:"center", alignItems:"initial"}}>
+        {news.map((article) => (
+          <NewsRowCard key={article.id} article={article} />
+        ))}
+        {/* <div className="imgstyle" style={{ height:"250px", width:"300px", alignContent:"center", alignItems:"initial"}}>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ullam ducimus, consectetur vero architecto voluptatum exercitationem pariatur minima, nostrum, saepe magnam impedit sunt earum? Tempora perspiciatis repellendus ex aut suscipit?</p>
       </div> */}
-
-    </div>
+      </div>
     </>
   );
 };

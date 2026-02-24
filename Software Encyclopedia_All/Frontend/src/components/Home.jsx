@@ -12,8 +12,8 @@ const Home = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:5000/api/categories"),
-      axios.get("http://localhost:5000/api/softwares"),
+      axios.get("http://software-encyclopedia-1.onrender.com/api/categories"),
+      axios.get("http://software-encyclopedia-1.onrender.com/api/softwares"),
     ]).then(([catRes, softRes]) => {
       setCategories(catRes.data);
       setSoftwares(softRes.data);

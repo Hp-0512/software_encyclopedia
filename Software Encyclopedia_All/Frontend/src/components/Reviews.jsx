@@ -6,14 +6,14 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-  axios
-    .get("http://localhost:5000/api/reviews")
-    .then((res) => {
-      console.log("REVIEWS API DATA 👉", res.data); // 👈 ADD THIS
-      setReviews(res.data);
-    })
-    .catch((err) => console.error(err));
-}, []);
+    axios
+      .get("http://software-encyclopedia-1.onrender.com/api/reviews")
+      .then((res) => {
+        console.log("REVIEWS API DATA 👉", res.data); // 👈 ADD THIS
+        setReviews(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   //if (reviews.length === 0) return null; // 👈 nothing to show
 

@@ -12,7 +12,7 @@ const ReviewsList = ({ softwareName }) => {
     setLoading(true);
 
     axios
-      .get("http://localhost:5000/api/reviewslist", {
+      .get("http://software-encyclopedia-1.onrender.com/api/reviewslist", {
         params: { softwareName },
       })
       .then((res) => setReviews(res.data))

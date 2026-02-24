@@ -8,7 +8,7 @@ import {
   where,
   doc,
   getDoc,
-  updateDoc
+  updateDoc,
 } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import "../CSS/UserProfilePanel.css";
@@ -44,7 +44,7 @@ const UserProfilePanel = ({ open, onClose }) => {
         // Count Saved Softwares
         const savedQuery = query(
           collection(db, "savedCollection"),
-          where("userId", "==", user.uid)
+          where("userId", "==", user.uid),
         );
         const savedSnap = await getDocs(savedQuery);
         setSavedCount(savedSnap.size);
@@ -52,11 +52,10 @@ const UserProfilePanel = ({ open, onClose }) => {
         // Count Quiz Attempts
         const quizQuery = query(
           collection(db, "quizResults"),
-          where("userId", "==", user.uid)
+          where("userId", "==", user.uid),
         );
         const quizSnap = await getDocs(quizQuery);
         setAttemptCount(quizSnap.size);
-
       } catch (error) {
         console.error("Profile fetch error:", error);
       }
@@ -76,7 +75,7 @@ const UserProfilePanel = ({ open, onClose }) => {
 
     try {
       await updateDoc(doc(db, "users", user.uid), {
-        username: newUsername
+        username: newUsername,
       });
 
       setUsername(newUsername);
@@ -106,13 +105,10 @@ const UserProfilePanel = ({ open, onClose }) => {
           <>
             {/* HERO */}
             <div className="profile-hero">
-              
               {/* Username Initial Circle */}
               <div className="avatar-wrapper">
                 <div className="profile-initial">
-                  {username
-                    ? username.charAt(0).toUpperCase()
-                    : "U"}
+                  {username ? username.charAt(0).toUpperCase() : "U"}
                 </div>
               </div>
 
@@ -122,15 +118,10 @@ const UserProfilePanel = ({ open, onClose }) => {
                   <>
                     <input
                       value={newUsername}
-                      onChange={(e) =>
-                        setNewUsername(e.target.value)
-                      }
+                      onChange={(e) => setNewUsername(e.target.value)}
                       className="username-input"
                     />
-                    <button
-                      className="save-btn"
-                      onClick={handleSaveUsername}
-                    >
+                    <button className="save-btn" onClick={handleSaveUsername}>
                       ✔
                     </button>
                   </>
@@ -141,7 +132,7 @@ const UserProfilePanel = ({ open, onClose }) => {
                       className="edit-icon"
                       onClick={() => setEditing(true)}
                     >
-                  ✏️
+                      ✏️
                     </span>
                   </>
                 )}
@@ -150,9 +141,7 @@ const UserProfilePanel = ({ open, onClose }) => {
               <p>{user.email}</p>
               <span>
                 Member since{" "}
-                {new Date(
-                  user.metadata.creationTime
-                ).toDateString()}
+                {new Date(user.metadata.creationTime).toDateString()}
               </span>
             </div>
 
@@ -171,22 +160,15 @@ const UserProfilePanel = ({ open, onClose }) => {
 
             {/* ACTIONS */}
             <div className="profile-actions">
-              <button
-                onClick={() => navigate("/collection")}
-              >
+              <button onClick={() => navigate("/collection")}>
                 View Collection
               </button>
 
-              <button
-                onClick={() => navigate("/quiz-analytics")}
-              >
+              <button onClick={() => navigate("/quiz-analytics")}>
                 Quiz Performance
               </button>
 
-              <button
-                className="logout-btn"
-                onClick={handleLogout}
-              >
+              <button className="logout-btn" onClick={handleLogout}>
                 Logout
               </button>
             </div>

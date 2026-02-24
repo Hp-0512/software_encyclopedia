@@ -55,7 +55,9 @@ const AdminHeader = () => {
 
   const fetchAdmin = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/adminprofile");
+      const res = await axios.get(
+        "http://software-encyclopedia-1.onrender.com/api/adminprofile",
+      );
       setAdminName(res.data.name);
     } catch (error) {
       console.error("Error fetching admin name:", error);

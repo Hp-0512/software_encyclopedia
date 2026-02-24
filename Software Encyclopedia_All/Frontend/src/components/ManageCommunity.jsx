@@ -11,7 +11,9 @@ export default function ManageCommunity() {
   const membersPerPage = 5;
 
   const fetchMembers = async () => {
-    const res = await axios.get("http://localhost:5000/api/community/members");
+    const res = await axios.get(
+      "http://software-encyclopedia-1.onrender.com/api/community/members",
+    );
     setMembers(res.data);
   };
 
@@ -22,7 +24,7 @@ export default function ManageCommunity() {
   const confirmRemove = async () => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/community/remove/${selectedId}`,
+        `http://software-encyclopedia-1.onrender.com/api/community/remove/${selectedId}`,
       );
       setSelectedId(null);
       fetchMembers();

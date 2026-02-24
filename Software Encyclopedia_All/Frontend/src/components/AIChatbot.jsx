@@ -21,7 +21,7 @@ export default function AIChatbot() {
   // Fetch softwares
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/softwares")
+      .get("http://software-encyclopedia-1.onrender.com/api/softwares")
       .then((res) => setSoftwares(res.data || []))
       .catch((err) => console.log("Software fetch error:", err));
   }, []);
@@ -29,7 +29,7 @@ export default function AIChatbot() {
   // Fetch reviews
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/reviews")
+      .get("http://software-encyclopedia-1.onrender.com/api/reviews")
       .then((res) => setReviews(res.data || []))
       .catch((err) => console.log("Review fetch error:", err));
   }, []);
@@ -57,11 +57,14 @@ export default function AIChatbot() {
     try {
       setTyping(true);
 
-      const res = await axios.post("http://localhost:5000/api/ai", {
-        message: userText,
-        softwares: softwares || [],
-        reviews: reviews || [],
-      });
+      const res = await axios.post(
+        "http://software-encyclopedia-1.onrender.com/api/ai",
+        {
+          message: userText,
+          softwares: softwares || [],
+          reviews: reviews || [],
+        },
+      );
 
       setMessages((prev) => [...prev, { sender: "bot", text: res.data.reply }]);
     } catch (err) {

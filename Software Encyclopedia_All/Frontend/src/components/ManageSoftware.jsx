@@ -29,7 +29,7 @@ const ManageSoftware = () => {
   // ===== LOAD DATA =====
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/categories")
+      .get("http://software-encyclopedia-1.onrender.com/api/categories")
       .then((res) => setCategories(res.data));
     fetchSoftwares();
   }, []);
@@ -46,9 +46,11 @@ const ManageSoftware = () => {
   }, [softwares, categoryId]);
 
   const fetchSoftwares = () => {
-    axios.get("http://localhost:5000/api/softwares").then((res) => {
-      setSoftwares(res.data);
-    });
+    axios
+      .get("http://software-encyclopedia-1.onrender.com/api/softwares")
+      .then((res) => {
+        setSoftwares(res.data);
+      });
   };
 
   // ===== CATEGORY CHANGE =====
@@ -127,8 +129,14 @@ const ManageSoftware = () => {
     };
 
     const request = isEdit
-      ? axios.put(`http://localhost:5000/api/softwares/${editId}`, payload)
-      : axios.post("http://localhost:5000/api/softwares", payload);
+      ? axios.put(
+          `http://software-encyclopedia-1.onrender.com/api/softwares/${editId}`,
+          payload,
+        )
+      : axios.post(
+          "http://software-encyclopedia-1.onrender.com/api/softwares",
+          payload,
+        );
 
     request.then(() => {
       fetchSoftwares();
@@ -161,10 +169,14 @@ const ManageSoftware = () => {
 
   // ===== CONFIRM DELETE =====
   const confirmDelete = () => {
-    axios.delete(`http://localhost:5000/api/softwares/${deleteId}`).then(() => {
-      fetchSoftwares();
-      setDeleteId(null);
-    });
+    axios
+      .delete(
+        `http://software-encyclopedia-1.onrender.com/api/softwares/${deleteId}`,
+      )
+      .then(() => {
+        fetchSoftwares();
+        setDeleteId(null);
+      });
   };
 
   return (
