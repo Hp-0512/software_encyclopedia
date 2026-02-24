@@ -9,7 +9,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import "../CSS/ManageCategory.css";
+import "../CSS/Managecategory.css";
 
 const ManageCategory = () => {
   const [categories, setCategories] = useState([]);
