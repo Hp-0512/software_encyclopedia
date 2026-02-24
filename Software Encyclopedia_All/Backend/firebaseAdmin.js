@@ -1,40 +1,5 @@
 // const admin = require("firebase-admin");
 
-// const serviceAccount = require("./serviceAccountKey.json");
-
-// admin.initializeApp({
-//     credential: admin.credential.cert(serviceAccount)
-// });
-
-// const db = admin.firestore();
-
-// module.exports = db;
-
-// const admin = require("firebase-admin");
-
-// try {
-//     const serviceAccount = require("./serviceAccountKey.json");
-
-//     admin.initializeApp({
-//         credential: admin.credential.cert(serviceAccount),
-//     });
-
-//     const db = admin.firestore();
-
-//     module.exports = {
-//         admin,
-//         db,
-//     };
-
-//     console.log("Firebase Admin Initialized Successfully");
-
-// } catch (error) {
-//     console.error("Firebase Admin Error:", error);
-// }
-
-
-// const admin = require("firebase-admin");
-
 // try {
 //     admin.initializeApp({
 //         credential: admin.credential.cert({
@@ -64,9 +29,9 @@ try {
     if (!admin.apps.length) {
         admin.initializeApp({
             credential: admin.credential.cert({
-                projectId: process.env.FIREBASE_PROJECT_ID,
-                clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-                privateKey: process.env.FIREBASE_PRIVATE_KEY
+                project_id: process.env.FIREBASE_PROJECT_ID,
+                client_email: process.env.FIREBASE_CLIENT_EMAIL,
+                private_Key: process.env.FIREBASE_PRIVATE_KEY
                     ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n")
                     : undefined,
             }),
