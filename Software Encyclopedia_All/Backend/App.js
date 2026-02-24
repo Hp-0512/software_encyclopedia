@@ -10,14 +10,32 @@ const app = express();
 const ImageKit = require("imagekit");
 
 const communityRoutes = require("./routes/ManageCommunity");
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://software-encyclopedia-yqun.vercel.app"
+];
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://software-encyclopedia-yqun.vercel.app"
-  ],
-  methods: ["GET", "POST", "DELETE", "PUT"],
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+// app.use(cors({
+//   origin: [
+//     "http://localhost:5173",
+//     "https://software-encyclopedia-yqun.vercel.app"
+//   ],
+//   methods: ["GET", "POST", "DELETE", "PUT"],
+//   credentials: true
+// }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
