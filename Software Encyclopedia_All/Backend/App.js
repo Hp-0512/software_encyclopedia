@@ -57,7 +57,9 @@ app.use("/api/news", require("./routes/news"));
 //for quiz
 app.use("/api/quiz", require("./routes/quiz"));
 
-
+app.get("/test", (req, res) => {
+  res.send("API working");
+});
 
 
 const imagekit = new ImageKit({
