@@ -29,7 +29,7 @@ const ManageSoftware = () => {
   // ===== LOAD DATA =====
   useEffect(() => {
     axios
-      .get("http://software-encyclopedia-1.onrender.com/api/categories")
+      .get("https://software-encyclopedia-1.onrender.com/api/categories")
       .then((res) => setCategories(res.data));
     fetchSoftwares();
   }, []);
@@ -47,7 +47,7 @@ const ManageSoftware = () => {
 
   const fetchSoftwares = () => {
     axios
-      .get("http://software-encyclopedia-1.onrender.com/api/softwares")
+      .get("https://software-encyclopedia-1.onrender.com/api/softwares")
       .then((res) => {
         setSoftwares(res.data);
       });
@@ -130,11 +130,11 @@ const ManageSoftware = () => {
 
     const request = isEdit
       ? axios.put(
-          `http://software-encyclopedia-1.onrender.com/api/softwares/${editId}`,
+          `https://software-encyclopedia-1.onrender.com/api/softwares/${editId}`,
           payload,
         )
       : axios.post(
-          "http://software-encyclopedia-1.onrender.com/api/softwares",
+          "https://software-encyclopedia-1.onrender.com/api/softwares",
           payload,
         );
 
@@ -171,7 +171,7 @@ const ManageSoftware = () => {
   const confirmDelete = () => {
     axios
       .delete(
-        `http://software-encyclopedia-1.onrender.com/api/softwares/${deleteId}`,
+        `https://software-encyclopedia-1.onrender.com/api/softwares/${deleteId}`,
       )
       .then(() => {
         fetchSoftwares();

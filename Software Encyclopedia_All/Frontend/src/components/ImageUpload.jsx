@@ -32,7 +32,7 @@ export default function ImageUpload({ currentUser, categoryId }) {
         try {
           // 1️⃣ Fetch ImageKit authentication parameters from backend
           const authRes = await fetch(
-            "http://software-encyclopedia-1.onrender.com/auth",
+            "https://software-encyclopedia-1.onrender.com/auth",
           );
           const authData = await authRes.json();
 
