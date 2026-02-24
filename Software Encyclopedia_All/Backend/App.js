@@ -17,6 +17,9 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Backend Running Successfully");
+});
 app.use("/api/users", require("./routes/Manageusers"));
 app.use("/api/categories", require("./routes/categories"));
 app.use("/api/softwares", require("./routes/softwares"));
