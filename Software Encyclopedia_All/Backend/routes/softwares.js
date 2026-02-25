@@ -16,7 +16,11 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   const snap = await db.collection("Softwares").get();
   res.send(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+  console.log("Categories data", data);
+
 });
+
+
 
 // ✏ UPDATE
 router.put("/:id", async (req, res) => {

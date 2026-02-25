@@ -32,6 +32,7 @@ router.get("/", async (req, res) => {
     id: doc.id,
     ...doc.data(),
   }));
+  console.log("Categories data", data);
 
   res.send(data);
 });
