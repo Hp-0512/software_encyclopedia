@@ -68,14 +68,7 @@ app.get("/test", (req, res) => {
   res.send("API working");
 });
 
-app.get("/firetest", async (req, res) => {
-  try {
-    await db.collection("categories").get();
-    res.json({ success: true });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+
 
 const imagekit = new ImageKit({
   publicKey: "public_1sXBATopv1zxz/4K7xvCea2XG3o=",
