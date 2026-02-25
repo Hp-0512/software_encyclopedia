@@ -14,11 +14,15 @@ router.post("/", async (req, res) => {
 
 // 📥 GET ALL
 router.get("/", async (req, res) => {
-  console.log("Fetching al software");
-  const snap = await db.collection("Softwares").get();
-  res.send(snap.docs.map(d => ({ id: d.id, ...d.data() })));
-  console.log("Software data", data);
-
+  try {
+    const snap = await db.collection("Softwares").get(); // exact name in Firestore
+    const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    console.log("Softwares data:", data);
+    res.json(data);
+  } catch (err) {
+    console.error("Get Softwares Error:", err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 
