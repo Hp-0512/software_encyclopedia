@@ -13,8 +13,7 @@ const ImageKit = require("imagekit");
 const communityRoutes = require("./routes/ManageCommunity");
 
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://software-encyclopedia-yqun.vercel.app"
+  "*"
 ];
 
 app.use(cors({
@@ -34,14 +33,7 @@ app.use(cors({
   credentials: true
 }));
 
-// app.use(cors({
-//   origin: [
-//     "http://localhost:5173",
-//     "https://software-encyclopedia-yqun.vercel.app"
-//   ],
-//   methods: ["GET", "POST", "DELETE", "PUT"],
-//   credentials: true
-// }));
+
 app.use(express.json());
 
 app.get("/", (req, res) => {

@@ -52,6 +52,8 @@ router.get("/", async (req, res) => {
 //     res.status(500).json({ error: error.message });
 //   }
 // });
+
+
 //Update Category
 router.put("/:id", async (req, res) => {
   try {
