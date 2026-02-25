@@ -66,14 +66,14 @@ app.get("/test", (req, res) => {
   res.send("API working");
 });
 
-app.get("/debug", (req, res) => {
-  res.json({
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    email: process.env.FIREBASE_CLIENT_EMAIL ? "exists" : "missing",
-    key: process.env.FIREBASE_PRIVATE_KEY ? "exists" : "missing",
-  });
+app.get("/firetest", async (req, res) => {
+  try {
+    await db.collection("categories").get();
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
-
 
 const imagekit = new ImageKit({
   publicKey: "public_1sXBATopv1zxz/4K7xvCea2XG3o=",
