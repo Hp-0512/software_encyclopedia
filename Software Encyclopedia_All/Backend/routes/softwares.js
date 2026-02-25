@@ -14,9 +14,10 @@ router.post("/", async (req, res) => {
 
 // 📥 GET ALL
 router.get("/", async (req, res) => {
+  console.log("Fetching al software");
   const snap = await db.collection("Softwares").get();
   res.send(snap.docs.map(d => ({ id: d.id, ...d.data() })));
-  console.log("Categories data", data);
+  console.log("Software data", data);
 
 });
 
