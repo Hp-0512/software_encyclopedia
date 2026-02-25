@@ -1,7 +1,7 @@
 
 const express = require("express");
 const router = express.Router();
-const { db } = require("./firebaseAdmin");
+const { db } = require("../firebaseAdmin");
 const { messaging } = require("firebase-admin");
 
 // ➕ Add Category
