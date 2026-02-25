@@ -10,7 +10,7 @@ const TechNews = () => {
     const fetchNews = async () => {
       try {
         const res = await fetch(
-          "https://software-encyclopedia-1.onrender.com/api/news/tech-news",
+          "https://software-encyclopedia-2.onrender.com/api/news/tech-news",
         );
         const data = await res.json();
         setNews(data.articles || []);

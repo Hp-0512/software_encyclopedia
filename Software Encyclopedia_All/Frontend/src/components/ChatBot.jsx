@@ -18,7 +18,7 @@ const ChatBot = () => {
 
     try {
       const res = await axios.post(
-        "https://software-encyclopedia-1.onrender.com/api/chatbot",
+        "https://software-encyclopedia-2.onrender.com/api/chatbot",
         { message: input },
       );
 

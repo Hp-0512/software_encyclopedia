@@ -12,7 +12,7 @@ export default function ManageCommunity() {
 
   const fetchMembers = async () => {
     const res = await axios.get(
-      "https://software-encyclopedia-1.onrender.com/api/community/members",
+      "https://software-encyclopedia-2.onrender.com/api/community/members",
     );
     setMembers(res.data);
   };
@@ -24,7 +24,7 @@ export default function ManageCommunity() {
   const confirmRemove = async () => {
     try {
       await axios.delete(
-        `https://software-encyclopedia-1.onrender.com/api/community/remove/${selectedId}`,
+        `https://software-encyclopedia-2.onrender.com/api/community/remove/${selectedId}`,
       );
       setSelectedId(null);
       fetchMembers();
