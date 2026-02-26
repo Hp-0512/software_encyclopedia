@@ -108,7 +108,6 @@ const ManageCategory = () => {
               <td>{cat.Description}</td>
               <td className="action-icons">
                 <span
-                  className="edit-icon"
                   onClick={() => {
                     setCategoryName(cat.Name);
                     setCategoryDescription(cat.Description);
