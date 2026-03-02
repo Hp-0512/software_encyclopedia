@@ -64,7 +64,10 @@
   cursor: pointer;
 } */
 
-
+.admin-main {
+  flex: 1;
+  min-width: 0; /* 🔥 REQUIRED in flex layouts */
+}
 
 * {
   box-sizing: border-box;
@@ -81,8 +84,6 @@
   flex: 1;
   padding: 30px 40px;
 }
-
-
 
 .open-btn {
   padding: 10px 18px;
@@ -103,14 +104,12 @@
   margin-top: 20px;
 }
 
-
-
 .admin-card {
   background: #ffffff;
   padding: 40px;
   border-radius: 22px;
   min-height: 220px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
   border-top: 5px solid #00b3b3;
   transition: 0.4s ease;
   display: flex;
@@ -118,10 +117,9 @@
   justify-content: space-between;
 }
 
-
 .admin-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0,179,179,0.25);
+  box-shadow: 0 20px 45px rgba(0, 179, 179, 0.25);
 }
 
 .admin-card h3 {
