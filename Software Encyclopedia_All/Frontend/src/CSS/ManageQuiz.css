@@ -39,6 +39,7 @@
 .table-wrapper {
   width: 100%;
   overflow-x: hidden; /* scroll instead of break */
+  overflow-y: hidden;
 }
 
 /* ================= TABLE ================= */
