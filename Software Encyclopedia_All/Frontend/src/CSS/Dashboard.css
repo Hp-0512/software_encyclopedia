@@ -1,11 +1,9 @@
-* {
-  min-height: 100%;
-}
 .admin-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
   max-width: 1100px;
+  min-height: 100%;
 }
 
 .admin-card {
