@@ -5,26 +5,27 @@
   font-family: "Inter", sans-serif;
 }
 
-/* PAGE */
-/* .auth-page {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  background: linear-gradient(135deg, #293073, #1f255a);
-} */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
 
+/* PAGE */
 .auth-page {
   width: 100%;
   min-height: 100vh;
   display: flex;
   background: linear-gradient(135deg, #293073, #1f255a);
 }
-/* LEFT */
+
+/* LEFT SIDE */
 .auth-left {
   width: 60%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .left-content {
@@ -34,34 +35,27 @@
   gap: 35px;
 }
 
-/* BRAND NAME */
-.brand-name {
-  width: 260px;
-  opacity: 0.95;
-}
-
-.card-logo {
-  width: 260px;
-  opacity: 0.95;
-}
-.auth-right {
-  padding-top: 80px;
-}
-
-.auth-left {
-  padding-top: 80px;
-}
-.auth-left,
-.auth-right {
+/* BRAND */
+.left-brand {
   display: flex;
-  align-items: flex-start; /* ⬅ TOP aligned */
-  justify-content: center;
-  padding-top: 80px; /* SAME OFFSET FROM TOP */
+  align-items: center;
+  gap: 14px;
+}
+
+.left-logo-icon {
+  width: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 179, 179, 0.5));
+}
+
+.left-logo-name {
+  width: 220px;
+  opacity: 0.95;
 }
 
 /* HERO IMAGE */
 .hero-img {
-  height: 500px; /* ⬅ Bigger image */
+  max-height: 65vh;
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -80,19 +74,19 @@
   }
 }
 
-/* RIGHT */
+/* RIGHT SIDE */
 .auth-right {
   width: 40%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 /* CARD */
 .auth-card {
-  width: 480px;
+  width: 420px;
   max-width: 92%;
-  padding: 48px;
+  padding: 40px;
   background: rgba(20, 20, 20, 0.65);
   backdrop-filter: blur(14px);
   border-radius: 14px;
@@ -100,15 +94,7 @@
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
 }
 
-/* CARD LOGO */
-.card-logo {
-  width: 140px;
-  height: 100px;
-  display: block;
-  margin: 0 auto 25px;
-}
-
-/* BRAND ROW INSIDE CARD */
+/* CARD BRAND */
 .card-brand {
   display: flex;
   align-items: center;
@@ -117,22 +103,15 @@
   margin-bottom: 28px;
 }
 
-/* LOGO ICON */
 .card-logo-icon {
   width: 42px;
-  height: auto;
   object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 179, 179, 0.4));
 }
 
-/* BRAND NAME IMAGE */
 .card-logo-name {
   height: 26px;
-  width: auto;
   opacity: 0.95;
-}
-
-.card-logo-icon {
-  filter: drop-shadow(0 0 8px rgba(0, 179, 179, 0.4));
 }
 
 /* TOGGLE */
@@ -149,10 +128,10 @@
   flex: 1;
   text-align: center;
   padding: 10px;
-  z-index: 2;
   font-size: 14px;
   opacity: 0.7;
   color: #fff;
+  z-index: 2;
 }
 
 .toggle span.active {
@@ -178,21 +157,6 @@
 }
 
 /* FORM */
-.form {
-  animation: fade 0.4s ease;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .form input {
   width: 100%;
   padding: 12px;
@@ -222,32 +186,23 @@
   background: #00d1d1;
 }
 
-/* FORGOT */
-.forgot {
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.7;
-  margin-top: 18px;
-  cursor: pointer;
+/* PASSWORD FIELD */
+.password-wrapper {
+  position: relative;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .auth-page {
-    flex-direction: column;
-  }
+.password-wrapper input {
+  padding-right: 40px;
+}
 
-  .auth-left,
-  .auth-right {
-    display: flex;
-    align-items: flex-start; /* ⬅ TOP aligned */
-    justify-content: center;
-    padding-top: 80px; /* SAME OFFSET FROM TOP */
-  }
-
-  .hero-img {
-    width: 70%;
-  }
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
 }
 
 /* PASSWORD STRENGTH */
@@ -262,7 +217,6 @@
 .strength span {
   display: block;
   height: 100%;
-  width: 0%;
   transition: 0.4s;
 }
 
@@ -280,8 +234,7 @@
   width: 100%;
   background: #00e676;
 }
-/* Password strength text */
-/* Password strength text */
+
 .strength-text {
   font-size: 12px;
   margin-bottom: 6px;
@@ -291,186 +244,53 @@
 .strength-text.weak {
   color: #ff4d4d;
 }
-
 .strength-text.medium {
   color: #f7c948;
 }
-
 .strength-text.strong {
   color: #00e676;
 }
 
-/* Submit message for errors and success */
+/* MESSAGE */
 .submit-message {
   font-size: 12px;
-  margin-top: 4px;
-}
-
-.submit-message.error {
-  color: #ff4d4d; /* Red for weak/medium password */
-}
-
-/* Password eye icon color same as placeholder */
-.password-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.password-wrapper input {
-  width: 100%;
-  padding-right: 40px; /* space for eye */
-  height: 40px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: #fff;
-  font-size: 14px;
-}
-
-.password-toggle {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
-  transition: all 0.3s ease;
-}
-
-.password-toggle:hover {
-  color: #00e676;
-  transform: translateY(-50%) scale(1.2);
-}
-
-/* LEFT BRAND (logo + name above hero image) */
-.left-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.left-logo-icon {
-  width: 60px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(0, 179, 179, 0.5));
-}
-
-.left-logo-name {
-  width: 220px;
-  height: auto;
-  opacity: 0.95;
-}
-
-/* Animated rectangle ONLY around logo + name */
-.brand-frame {
-  position: relative;
-  display: inline-block;
-  padding: 18px 28px;
-  border-radius: 10px;
-  margin-bottom: 28px;
-}
-
-/* Static faint border */
-.brand-frame::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  border: 4px solid rgba(255, 255, 255);
-}
-
-/* Animated drawing border */
-.brand-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  border: 4px solid transparent;
-  border-top-color: #00b3b3;
-  border-right-color: #00b3b3;
-  animation: drawBrandFrame 3s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes drawBrandFrame {
-  0% {
-    clip-path: inset(0 100% 100% 0);
-  }
-  25% {
-    clip-path: inset(0 0 100% 0);
-  }
-  50% {
-    clip-path: inset(0 0 0 0);
-  }
-  75% {
-    clip-path: inset(100% 0 0 0);
-  }
-  100% {
-    clip-path: inset(0 100% 100% 0);
-  }
+  margin-top: 6px;
 }
 
 .error-strong {
-  font-weight: 900;
-  color: #ffffff;
-
-  /* FULL RED BACKGROUND */
+  font-weight: 700;
   background: linear-gradient(135deg, #ff1e1e, #c40000);
-
-  padding: 14px 18px;
-  margin-top: 14px;
-  border-radius: 10px;
-
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: left;
-
-  /* STRONG VISUAL EFFECT */
-  box-shadow:
-    0 0 12px rgba(255, 0, 0, 0.6),
-    0 6px 20px rgba(0, 0, 0, 0.4);
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  animation: pulseShake 0.35s ease-in-out;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
 }
 
-/* REMOVE BROWSER PASSWORD REVEAL / AUTOFILL ICONS */
-
-/* Edge / IE */
-input[type="password"]::-ms-reveal,
-input[type="password"]::-ms-clear {
-  display: none;
-}
-
-/* Chrome / Edge / Safari */
-input[type="password"]::-webkit-credentials-auto-fill-button,
-input[type="password"]::-webkit-contacts-auto-fill-button {
-  display: none !important;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Extra safety */
-input[type="password"] {
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-.forgot.center {
+/* FORGOT PASSWORD */
+.forgot {
   margin-top: 16px;
   text-align: center;
   font-size: 13px;
   color: #00e676;
   cursor: pointer;
-  transition: 0.3s ease;
 }
 
 .forgot:hover {
   text-decoration: underline;
-  color: #00ff9c;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .auth-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .auth-left,
+  .auth-right {
+    width: 100%;
+  }
+
+  .hero-img {
+    max-height: 300px;
+  }
 }

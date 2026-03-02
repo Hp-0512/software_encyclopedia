@@ -107,7 +107,7 @@ export default function Auth() {
         const userCred = await createUserWithEmailAndPassword(
           auth,
           email,
-          password
+          password,
         );
 
         // 2️⃣ Store user in Firestore
@@ -120,7 +120,11 @@ export default function Auth() {
         setSubmitMessage("Account created successfully!");
         setTimeout(() => setMode("login"), 1000);
       } else {
-        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        const userCred = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password,
+        );
 
         const loggedInEmail = userCred.user.email;
 
@@ -136,10 +140,9 @@ export default function Auth() {
           // ✅ Normal user login
           setSubmitMessage("Login successful!");
           setTimeout(() => {
-      navigate("/home");
-    }, 1200);
+            navigate("/home");
+          }, 1200);
         }
-
       }
     } catch (error) {
       setSubmitMessage(getAuthErrorMessage(error));
