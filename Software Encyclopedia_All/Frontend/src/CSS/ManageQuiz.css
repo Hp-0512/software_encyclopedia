@@ -190,7 +190,7 @@
 }
 
 /* ================= PAGINATION ================= */
-.pagination {
+/* .pagination {
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -215,7 +215,7 @@
 }
 
 .active-page {
-  background: #2c3e50 !important;
+  background: #2c3e50;
   color: white;
   border-color: #2c3e50;
-}
+} */
