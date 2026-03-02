@@ -6,13 +6,19 @@
 }
 
 /* PAGE */
-.auth-page {
+/* .auth-page {
   width: 100vw;
   height: 100vh;
   display: flex;
   background: linear-gradient(135deg, #293073, #1f255a);
-}
+} */
 
+.auth-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #293073, #1f255a);
+}
 /* LEFT */
 .auth-left {
   width: 60%;
@@ -48,14 +54,14 @@
 .auth-left,
 .auth-right {
   display: flex;
-  align-items: flex-start;   /* ⬅ TOP aligned */
+  align-items: flex-start; /* ⬅ TOP aligned */
   justify-content: center;
-  padding-top: 80px;         /* SAME OFFSET FROM TOP */
+  padding-top: 80px; /* SAME OFFSET FROM TOP */
 }
 
 /* HERO IMAGE */
 .hero-img {
-  height: 500px;        /* ⬅ Bigger image */
+  height: 500px; /* ⬅ Bigger image */
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -63,9 +69,15 @@
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* RIGHT */
@@ -76,8 +88,6 @@
   justify-content: center;
 }
 
-
-
 /* CARD */
 .auth-card {
   width: 480px;
@@ -87,7 +97,7 @@
   backdrop-filter: blur(14px);
   border-radius: 14px;
   color: #fff;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
 }
 
 /* CARD LOGO */
@@ -121,17 +131,15 @@
   opacity: 0.95;
 }
 
-
 .card-logo-icon {
-  filter: drop-shadow(0 0 8px rgba(0,179,179,0.4));
+  filter: drop-shadow(0 0 8px rgba(0, 179, 179, 0.4));
 }
-
 
 /* TOGGLE */
 .toggle {
   position: relative;
   display: flex;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 30px;
   margin-bottom: 30px;
   cursor: pointer;
@@ -175,22 +183,28 @@
 }
 
 @keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border: none;
   border-radius: 6px;
   color: #fff;
 }
 
 .form input::placeholder {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .form button {
@@ -223,14 +237,13 @@
     flex-direction: column;
   }
 
- .auth-left,
-.auth-right {
-  display: flex;
-  align-items: flex-start;   /* ⬅ TOP aligned */
-  justify-content: center;
-  padding-top: 80px;         /* SAME OFFSET FROM TOP */
-}
-
+  .auth-left,
+  .auth-right {
+    display: flex;
+    align-items: flex-start; /* ⬅ TOP aligned */
+    justify-content: center;
+    padding-top: 80px; /* SAME OFFSET FROM TOP */
+  }
 
   .hero-img {
     width: 70%;
@@ -241,7 +254,7 @@
 .strength {
   height: 6px;
   border-radius: 4px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   margin-bottom: 12px;
   overflow: hidden;
 }
@@ -308,7 +321,7 @@
   padding-right: 40px; /* space for eye */
   height: 40px;
   border-radius: 6px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border: none;
   color: #fff;
   font-size: 14px;
@@ -330,8 +343,6 @@
   transform: translateY(-50%) scale(1.2);
 }
 
-
-
 /* LEFT BRAND (logo + name above hero image) */
 .left-brand {
   display: flex;
@@ -343,7 +354,7 @@
   width: 60px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(0,179,179,0.5));
+  filter: drop-shadow(0 0 10px rgba(0, 179, 179, 0.5));
 }
 
 .left-logo-name {
@@ -351,7 +362,6 @@
   height: auto;
   opacity: 0.95;
 }
-
 
 /* Animated rectangle ONLY around logo + name */
 .brand-frame {
@@ -368,7 +378,7 @@
   position: absolute;
   inset: 0;
   border-radius: 14px;
-  border: 4px solid rgba(255,255,255);
+  border: 4px solid rgba(255, 255, 255);
 }
 
 /* Animated drawing border */
@@ -402,8 +412,6 @@
   }
 }
 
-
-
 .error-strong {
   font-weight: 900;
   color: #ffffff;
@@ -420,7 +428,7 @@
   text-align: left;
 
   /* STRONG VISUAL EFFECT */
-  box-shadow: 
+  box-shadow:
     0 0 12px rgba(255, 0, 0, 0.6),
     0 6px 20px rgba(0, 0, 0, 0.4);
 
@@ -430,7 +438,6 @@
 
   animation: pulseShake 0.35s ease-in-out;
 }
-
 
 /* REMOVE BROWSER PASSWORD REVEAL / AUTOFILL ICONS */
 
