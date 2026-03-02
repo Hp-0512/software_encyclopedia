@@ -42,6 +42,40 @@
   overflow-y: hidden;
 }
 
+/* ==== HARD STOP OVERFLOW ==== */
+.quiz-container,
+.quiz-card,
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Force columns to share space */
+.quiz-table th,
+.quiz-table td {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Define column widths properly */
+.quiz-table th:nth-child(1) {
+  width: 15%;
+}
+.quiz-table th:nth-child(2) {
+  width: 25%;
+}
+.quiz-table th:nth-child(3) {
+  width: 15%;
+}
+.quiz-table th:nth-child(4) {
+  width: 15%;
+}
+.quiz-table th:nth-child(5) {
+  width: 15%;
+}
+.quiz-table th:nth-child(6) {
+  width: 15%;
+}
 /* ================= TABLE ================= */
 .quiz-table {
   width: 100%;
@@ -153,4 +187,35 @@
 
 .cancel-btn:hover {
   background: #f2f2f2;
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.pagination button:hover {
+  background: #f2f2f2;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.active-page {
+  background: #2c3e50 !important;
+  color: white;
+  border-color: #2c3e50;
 }

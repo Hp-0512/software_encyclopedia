@@ -16,6 +16,14 @@ const ManageQuiz = () => {
   const [categoryId, setCategoryId] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 4;
+
+  const indexOfLast = currentPage * recordsPerPage;
+  const indexOfFirst = indexOfLast - recordsPerPage;
+  const currentRecords = Result.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(Result.length / recordsPerPage);
 
   useEffect(() => {
     fetchCategories();
@@ -128,7 +136,7 @@ const ManageQuiz = () => {
                   </td>
                 </tr>
               ) : (
-                Result.map((res) => (
+                currentRecords.map((res) => (
                   <tr key={res.id}>
                     <td>{res.username}</td>
                     <td>{res.email}</td>
@@ -152,6 +160,33 @@ const ManageQuiz = () => {
             </tbody>
           </table>
         </div>
+        {totalPages > 1 && (
+          <div className="pagination">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}
+            >
+              Prev
+            </button>
+
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i}
+                className={currentPage === i + 1 ? "active-page" : ""}
+                onClick={() => setCurrentPage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(currentPage + 1)}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
       {showModal && (
         <div className="modal-overlay">
