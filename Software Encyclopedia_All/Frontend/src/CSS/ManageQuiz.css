@@ -74,7 +74,7 @@
 
 /* Hover */
 .quiz-table tbody tr:hover {
-  background: #f5f7fb;
+  background-color: aqua;
 }
 
 /* ================= EMPTY MESSAGE ================= */
