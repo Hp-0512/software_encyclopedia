@@ -19,7 +19,7 @@ const ManageReviews = () => {
 
   /* Pagination */
   const [currentPage, setCurrentPage] = useState(1);
-  const reviewsPerPage = ;
+  const reviewsPerPage = 3;
 
   useEffect(() => {
     fetchCategories();
