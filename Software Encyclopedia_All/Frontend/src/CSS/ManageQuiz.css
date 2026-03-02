@@ -38,7 +38,7 @@
 /* ================= TABLE WRAPPER ================= */
 .table-wrapper {
   width: 100%;
-  overflow-x: auto; /* scroll instead of break */
+  overflow-x: hidden; /* scroll instead of break */
 }
 
 /* ================= TABLE ================= */
