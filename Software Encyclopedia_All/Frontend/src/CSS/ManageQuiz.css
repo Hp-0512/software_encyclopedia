@@ -35,13 +35,6 @@
   background: #fff;
 }
 
-/* ================= TABLE WRAPPER ================= */
-.table-wrapper {
-  width: 100%;
-  overflow-x: hidden; /* scroll instead of break */
-  overflow-y: hidden;
-}
-
 /* ==== HARD STOP OVERFLOW ==== */
 .quiz-container,
 .quiz-card,
@@ -55,6 +48,7 @@
 .quiz-table td {
   white-space: normal;
   word-break: break-word;
+  overflow-x: hidden;
 }
 
 /* Define column widths properly */
