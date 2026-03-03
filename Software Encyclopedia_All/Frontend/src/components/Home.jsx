@@ -14,9 +14,9 @@ const Home = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.get("https://software-encyclopedia-2.onrender.com/api/categories"),
+      axios.get("https://software-encyclopedia-1.onrender.com/api/categories"),
       axios.get("https://software-encyclopedia-2.onrender.com/api/softwares"),
-      axios.get("https://software-encyclopedia-2.onrender.com/api/trending"),
+      axios.get("https://software-encyclopedia-3.onrender.com/api/trending"),
     ]).then(([catRes, softRes, trendRes]) => {
       setCategories(catRes.data);
       setSoftwares(softRes.data);
