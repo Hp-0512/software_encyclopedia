@@ -221,7 +221,7 @@ const Softwares = () => {
                   <div style={{ display: "flex", gap: "8px" }}>
                     <button
                       className="details-btn"
-                      onClick={() => navigate(`/software/${s.id}`)}
+                      onClick={() => navigate(`/api/software/${s.id}`)}
                     >
                       View More
                     </button>
