@@ -9,7 +9,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import "../CSS/Managecategory.css";
+import "../CSS/ManageCategory.css";
 
 const ManageCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -108,6 +108,7 @@ const ManageCategory = () => {
               <td>{cat.Description}</td>
               <td className="action-icons">
                 <span
+                  className="edit-icon"
                   onClick={() => {
                     setCategoryName(cat.Name);
                     setCategoryDescription(cat.Description);

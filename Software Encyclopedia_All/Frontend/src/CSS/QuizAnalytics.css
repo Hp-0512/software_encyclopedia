@@ -69,7 +69,8 @@
 }
 
 .quiz-table tbody tr:hover {
-  background: #4cf603;
+  /* background: var(--accent-light); */
+  background: aqua;
   transform: scale(1.002);
 }
 

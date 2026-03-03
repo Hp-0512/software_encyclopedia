@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import "../CSS/QuizAnalytics.css";
 import Header from "./Header";
+import Footer from "../components/Footer";
 
 const QuizAnalytics = () => {
   const user = auth.currentUser;
@@ -93,7 +94,7 @@ const QuizAnalytics = () => {
           <table className="quiz-table">
             <thead>
               <tr>
-                <th>#</th>
+                <th>S No.</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Category</th>
@@ -126,6 +127,7 @@ const QuizAnalytics = () => {
         </div>
       )}
     </div>
+    <Footer/>
     </>
   );
 };

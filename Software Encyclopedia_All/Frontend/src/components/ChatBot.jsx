@@ -18,8 +18,8 @@ const ChatBot = () => {
 
     try {
       const res = await axios.post(
-        "https://software-encyclopedia-2.onrender.com/api/chatbot",
-        { message: input },
+        "http://localhost:5000/api/chatbot",
+        { message: input }
       );
 
       const botMsg = { role: "bot", text: res.data.reply };

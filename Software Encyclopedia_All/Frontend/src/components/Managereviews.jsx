@@ -8,7 +8,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import "../CSS/manageReviews.css";
+import "../css/manageReviews.css";
 
 const ManageReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -19,7 +19,7 @@ const ManageReviews = () => {
 
   /* Pagination */
   const [currentPage, setCurrentPage] = useState(1);
-  const reviewsPerPage = 4;
+  const reviewsPerPage = 5;
 
   useEffect(() => {
     fetchCategories();

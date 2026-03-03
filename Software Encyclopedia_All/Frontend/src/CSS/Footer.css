@@ -1,0 +1,85 @@
+:root {
+  --primary-dark: #293073;
+  --primary-dark-2: #1f255a;
+  --accent: #00b3b3;
+  --accent-light: #00d1d1;
+  --text-dark: #1f2937;
+  --bg-white: #ffffff;
+  --bg-soft: #f5f7fb;
+}
+
+/* FOOTER MAIN */
+.footer {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var( --accent-light)
+  );
+  color: white;
+  padding-top: 40px;
+  margin-top: 50px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 0 7% 35px;
+}
+
+/* BRAND */
+.footer-brand h2 {
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 30px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* LINKS */
+.footer-links h3,
+.footer-contact h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-links li:hover {
+  /* color: var(--accent-light); */
+  color:#09f514f9;
+}
+
+/* CONTACT */
+.footer-contact p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+/* BOTTOM STRIP */
+.footer-bottom {
+  text-align: center;
+  padding: 15px 7%;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  opacity: 0.85;
+}

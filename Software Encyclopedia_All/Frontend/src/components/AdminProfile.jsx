@@ -14,9 +14,7 @@ export default function AdminProfile() {
 
   const fetchAdminProfile = async () => {
     try {
-      const res = await axios.get(
-        "https://software-encyclopedia-2.onrender.com/api/adminprofile",
-      );
+      const res = await axios.get("http://localhost:5000/api/adminprofile");
       setAdmin(res.data);
       setLoading(false);
     } catch (error) {

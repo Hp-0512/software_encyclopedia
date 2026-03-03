@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "../CSS/AIChatbot.css";
+import ReactMarkdown from "react-markdown";
 
 export default function AIChatbot() {
   const [open, setOpen] = useState(false);
@@ -8,6 +9,12 @@ export default function AIChatbot() {
   const [softwares, setSoftwares] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [typing, setTyping] = useState(false);
+
+  // New UI States
+  const [buttonMode, setButtonMode] = useState("text"); // text → icon
+  const [popupMessage, setPopupMessage] = useState("");
+  const popupIntervalRef = useRef(null);
+  const popupTimeoutRef = useRef(null);
 
   const messagesEndRef = useRef(null);
 
@@ -18,30 +25,76 @@ export default function AIChatbot() {
 
   const [messages, setMessages] = useState([welcomeMessage]);
 
-  // Fetch softwares
+  /* ===============================
+     BUTTON TRANSITION (TEXT → ICON)
+  =============================== */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setButtonMode("icon");
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  /* ===============================
+     CONTINUOUS POPUP LOOP
+  =============================== */
+  useEffect(() => {
+    const defaultMessages = [
+      "Hi 👋",
+      "Welcome user 🙏",
+      "If there's a problem then let's chat",
+      "Ready to help you 😊",
+      "Do you want to know about any software 🤔 search here 😊",
+      "Ask me anything in my field 🫡 ",
+    ];
+
+    let index = 0;
+
+    const startPopupLoop = () => {
+      popupIntervalRef.current = setInterval(() => {
+        if (!open && buttonMode === "icon") {
+          setPopupMessage(defaultMessages[index]);
+          index = (index + 1) % defaultMessages.length;
+
+          popupTimeoutRef.current = setTimeout(() => {
+            setPopupMessage("");
+          }, 2500);
+        }
+      }, 4000);
+    };
+
+    startPopupLoop();
+
+    return () => {
+      clearInterval(popupIntervalRef.current);
+      clearTimeout(popupTimeoutRef.current);
+    };
+  }, [open, buttonMode]);
+
+  /* ===============================
+     FETCH DATA (UNCHANGED)
+  =============================== */
   useEffect(() => {
     axios
-      .get("https://software-encyclopedia-2.onrender.com/api/softwares")
+      .get("http://localhost:5000/api/softwares")
       .then((res) => setSoftwares(res.data || []))
       .catch((err) => console.log("Software fetch error:", err));
   }, []);
 
-  // Fetch reviews
   useEffect(() => {
     axios
-      .get("https://software-encyclopedia-2.onrender.com/api/reviews")
+      .get("http://localhost:5000/api/reviews")
       .then((res) => setReviews(res.data || []))
       .catch((err) => console.log("Review fetch error:", err));
   }, []);
 
-  // Reset chat when opened
   useEffect(() => {
     if (open) {
       setMessages([welcomeMessage]);
+      setPopupMessage("");
     }
   }, [open]);
 
-  // Auto scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, typing]);
@@ -57,14 +110,11 @@ export default function AIChatbot() {
     try {
       setTyping(true);
 
-      const res = await axios.post(
-        "https://software-encyclopedia-2.onrender.com/api/ai",
-        {
-          message: userText,
-          softwares: softwares || [],
-          reviews: reviews || [],
-        },
-      );
+      const res = await axios.post("http://localhost:5000/api/ai", {
+        message: userText,
+        softwares: softwares || [],
+        reviews: reviews || [],
+      });
 
       setMessages((prev) => [...prev, { sender: "bot", text: res.data.reply }]);
     } catch (err) {
@@ -79,10 +129,28 @@ export default function AIChatbot() {
 
   return (
     <>
-      <button className="chatbot-float-btn" onClick={() => setOpen(!open)}>
-        🤖
-      </button>
+      {/* FLOATING BUTTON */}
+      <div
+        className={`chatbot-trigger ${buttonMode}`}
+        onClick={() => setOpen(!open)}
+      >
+        {buttonMode === "text" ? (
+          <span className="chatbot-text-btn">
+            Hi 👋 Need Help?
+          </span>
+        ) : (
+          <span className="chatbot-icon">🤖</span>
+        )}
+      </div>
 
+      {/* POPUP MESSAGE */}
+      {popupMessage && !open && (
+        <div className="chatbot-popup">
+          {popupMessage}
+        </div>
+      )}
+
+      {/* CHAT WINDOW */}
       {open && (
         <div className="chatbot-box">
           <div className="chatbot-header">
@@ -103,12 +171,12 @@ export default function AIChatbot() {
                   msg.sender === "user" ? "user" : "bot"
                 }`}
               >
-                <div
-                  className={`chatbot-msg ${
-                    msg.sender === "user" ? "user" : "bot"
-                  }`}
-                >
-                  {msg.text}
+                <div className={`chatbot-msg ${msg.sender === "user" ? "user" : "bot"}`}>
+                  {msg.sender === "bot" ? (
+                    <ReactMarkdown>{msg.text}</ReactMarkdown>
+                  ) : (
+                    msg.text
+                  )}
                 </div>
               </div>
             ))}

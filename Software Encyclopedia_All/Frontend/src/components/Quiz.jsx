@@ -14,10 +14,13 @@ import { onAuthStateChanged } from "firebase/auth";
 import Confetti from "react-confetti";
 import Header from "./Header";
 import "../CSS/Quiz.css";
+import Footer from "../components/Footer";
 
 const Quiz = () => {
+  
   const [userAnswers, setUserAnswers] = useState([]);
   const [showReview, setShowReview] = useState(false);
+
 
   const [categories, setCategories] = useState([]);
   const [questions, setQuestions] = useState([]);
@@ -104,7 +107,7 @@ const Quiz = () => {
     }));
 
     const res = await axios.post(
-      "https://software-encyclopedia-2.onrender.com/api/quiz/generate-quiz",
+      "http://localhost:5000/api/quiz/generate-quiz",
       { categoryName: category.name, softwares },
     );
 
@@ -144,36 +147,38 @@ const Quiz = () => {
   //   }
   // };
 
+
   const handleNext = () => {
-    let updatedScore = score;
+  let updatedScore = score;
 
-    const correctIndex = questions[currentQuestion]?.correctAnswer;
-    const isCorrect = selectedAnswer === correctIndex;
+  const correctIndex = questions[currentQuestion]?.correctAnswer;
+  const isCorrect = selectedAnswer === correctIndex;
 
-    if (isCorrect) {
-      updatedScore = score + 1;
-      setScore(updatedScore);
-    }
+  if (isCorrect) {
+    updatedScore = score + 1;
+    setScore(updatedScore);
+  }
 
-    // ✅ Store answer record
-    const answerRecord = {
-      question: questions[currentQuestion]?.question,
-      options: questions[currentQuestion]?.options,
-      selectedAnswer,
-      correctAnswer: correctIndex,
-      isCorrect,
-    };
-
-    setUserAnswers((prev) => [...prev, answerRecord]);
-
-    if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion((prev) => prev + 1);
-      setSelectedAnswer(null);
-      setTimeLeft(30);
-    } else {
-      handleFinishQuiz(updatedScore);
-    }
+  // ✅ Store answer record
+  const answerRecord = {
+    question: questions[currentQuestion]?.question,
+    options: questions[currentQuestion]?.options,
+    selectedAnswer,
+    correctAnswer: correctIndex,
+    isCorrect,
   };
+
+  setUserAnswers((prev) => [...prev, answerRecord]);
+
+  if (currentQuestion + 1 < questions.length) {
+    setCurrentQuestion((prev) => prev + 1);
+    setSelectedAnswer(null);
+    setTimeLeft(30);
+  } else {
+    handleFinishQuiz(updatedScore);
+  }
+};
+
 
   // ✅ Finish Quiz + Save to Firestore
   // const handleFinishQuiz = async () => {
@@ -398,12 +403,15 @@ const Quiz = () => {
                       </div>
                     </div>
                   )}
+
+
                 </div>
               </div>
             )}
           </div>
         )}
       </div>
+      <Footer/>
     </>
   );
 };
