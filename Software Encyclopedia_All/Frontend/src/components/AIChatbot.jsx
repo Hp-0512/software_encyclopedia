@@ -76,14 +76,14 @@ export default function AIChatbot() {
   =============================== */
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/softwares")
+      .get("http://https://software-encyclopedia-2.onrender.com/api/softwares")
       .then((res) => setSoftwares(res.data || []))
       .catch((err) => console.log("Software fetch error:", err));
   }, []);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/reviews")
+      .get("http://https://software-encyclopedia-2.onrender.com/api/reviews")
       .then((res) => setReviews(res.data || []))
       .catch((err) => console.log("Review fetch error:", err));
   }, []);
@@ -110,11 +110,14 @@ export default function AIChatbot() {
     try {
       setTyping(true);
 
-      const res = await axios.post("http://localhost:5000/api/ai", {
-        message: userText,
-        softwares: softwares || [],
-        reviews: reviews || [],
-      });
+      const res = await axios.post(
+        "http://https://software-encyclopedia-2.onrender.com/api/ai",
+        {
+          message: userText,
+          softwares: softwares || [],
+          reviews: reviews || [],
+        },
+      );
 
       setMessages((prev) => [...prev, { sender: "bot", text: res.data.reply }]);
     } catch (err) {
@@ -135,9 +138,7 @@ export default function AIChatbot() {
         onClick={() => setOpen(!open)}
       >
         {buttonMode === "text" ? (
-          <span className="chatbot-text-btn">
-            Hi 👋 Need Help?
-          </span>
+          <span className="chatbot-text-btn">Hi 👋 Need Help?</span>
         ) : (
           <span className="chatbot-icon">🤖</span>
         )}
@@ -145,9 +146,7 @@ export default function AIChatbot() {
 
       {/* POPUP MESSAGE */}
       {popupMessage && !open && (
-        <div className="chatbot-popup">
-          {popupMessage}
-        </div>
+        <div className="chatbot-popup">{popupMessage}</div>
       )}
 
       {/* CHAT WINDOW */}
@@ -171,7 +170,9 @@ export default function AIChatbot() {
                   msg.sender === "user" ? "user" : "bot"
                 }`}
               >
-                <div className={`chatbot-msg ${msg.sender === "user" ? "user" : "bot"}`}>
+                <div
+                  className={`chatbot-msg ${msg.sender === "user" ? "user" : "bot"}`}
+                >
                   {msg.sender === "bot" ? (
                     <ReactMarkdown>{msg.text}</ReactMarkdown>
                   ) : (

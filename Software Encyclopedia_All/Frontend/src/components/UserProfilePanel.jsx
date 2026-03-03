@@ -8,7 +8,7 @@ import {
   where,
   doc,
   getDoc,
-  updateDoc
+  updateDoc,
 } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import "../CSS/UserProfilePanel.css";
@@ -43,7 +43,7 @@ const UserProfilePanel = ({ open, onClose }) => {
         // Count Saved Softwares
         const savedQuery = query(
           collection(db, "savedCollection"),
-          where("userId", "==", user.uid)
+          where("userId", "==", user.uid),
         );
         const savedSnap = await getDocs(savedQuery);
         setSavedCount(savedSnap.size);
@@ -51,11 +51,10 @@ const UserProfilePanel = ({ open, onClose }) => {
         // Count Quiz Attempts
         const quizQuery = query(
           collection(db, "quizResults"),
-          where("userId", "==", user.uid)
+          where("userId", "==", user.uid),
         );
         const quizSnap = await getDocs(quizQuery);
         setAttemptCount(quizSnap.size);
-
       } catch (error) {
         console.error("Profile fetch error:", error);
       }
@@ -73,7 +72,7 @@ const UserProfilePanel = ({ open, onClose }) => {
 
     try {
       await updateDoc(doc(db, "users", user.uid), {
-        username: newUsername
+        username: newUsername,
       });
       setUsername(newUsername);
       setEditing(false);
@@ -99,8 +98,10 @@ const UserProfilePanel = ({ open, onClose }) => {
           <div className="profile-loading">Loading...</div>
         ) : (
           <>
-            <button className="panel-close-x" onClick={onClose}>✕</button>
-            
+            <button className="panel-close-x" onClick={onClose}>
+              ✕
+            </button>
+
             <div className="profile-hero">
               {/* INDEPENDENT PANEL AVATAR */}
               <div className="panel-avatar-container">
@@ -119,19 +120,30 @@ const UserProfilePanel = ({ open, onClose }) => {
                       className="username-input-field"
                       autoFocus
                     />
-                    <button className="confirm-save-btn" onClick={handleSaveUsername}>✔</button>
+                    <button
+                      className="confirm-save-btn"
+                      onClick={handleSaveUsername}
+                    >
+                      ✔
+                    </button>
                   </div>
                 ) : (
                   <div className="display-mode">
                     <h3>{username}</h3>
-                    <span className="pencil-icon" onClick={() => setEditing(true)}>✏️</span>
+                    <span
+                      className="pencil-icon"
+                      onClick={() => setEditing(true)}
+                    >
+                      ✏️
+                    </span>
                   </div>
                 )}
               </div>
 
               <p className="user-email-text">{user.email}</p>
               <span className="member-since-text">
-                Member since {new Date(user.metadata.creationTime).toDateString()}
+                Member since{" "}
+                {new Date(user.metadata.creationTime).toDateString()}
               </span>
             </div>
 
@@ -150,9 +162,15 @@ const UserProfilePanel = ({ open, onClose }) => {
 
             {/* ACTION BUTTONS */}
             <div className="panel-buttons-list">
-              <button onClick={() => navigate("/collection")}>View Collection</button>
-              <button onClick={() => navigate("/quiz-analytics")}>Quiz Performance</button>
-              <button className="panel-logout-action" onClick={handleLogout}>Logout</button>
+              <button onClick={() => navigate("/collection")}>
+                View Collection
+              </button>
+              <button onClick={() => navigate("/quiz-analytics")}>
+                Quiz Performance
+              </button>
+              <button className="panel-logout-action" onClick={handleLogout}>
+                Logout
+              </button>
             </div>
           </>
         )}

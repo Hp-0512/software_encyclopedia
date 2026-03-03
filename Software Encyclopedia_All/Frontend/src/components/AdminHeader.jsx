@@ -1,32 +1,3 @@
-// import React from "react";
-// import { useLocation } from "react-router-dom";
-// import "../CSS/AdminHeader.css";
-
-// const AdminHeader = () => {
-//   const location = useLocation();
-
-//   const pageTitles = {
-//     "/admin": "Overview",
-//     "/admin/manage-users": "User Accounts",
-//     "/admin/manage-categories": "Category Management",
-//     "/admin/manage-softwares": "Software Directory",
-//     "/admin/managereviews": "REview Moderation",
-//     "/admin/manageresult": "Quiz Analytics",
-//     "/admin/community": "Community Hub",
-//   };
-
-//   const title = pageTitles[location.pathname] || "Dashboard";
-
-//   return (
-//     <div className="admin-header">
-//       <h3>{title}</h3>
-//       <span>Admin</span>
-//     </div>
-//   );
-// };
-
-// export default AdminHeader;
-
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -55,7 +26,9 @@ const AdminHeader = () => {
 
   const fetchAdmin = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/adminprofile");
+      const res = await axios.get(
+        "http://https://software-encyclopedia-2.onrender.com/api/adminprofile",
+      );
       setAdminName(res.data.name);
     } catch (error) {
       console.error("Error fetching admin name:", error);

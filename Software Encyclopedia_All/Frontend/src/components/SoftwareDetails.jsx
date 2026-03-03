@@ -12,50 +12,48 @@ const SoftwareDetails = () => {
   const [software, setSoftware] = useState(null);
   const [loading, setLoading] = useState(true);
 
-const generateContent = async (softwareName) => {
-  try {
-    const res = await axios.post(
-      "http://localhost:5000/api/ai-details/generate",
-      {
-        softwareName: softwareName,
-      }
-    );
-
-    setSoftware(prev => ({
-      ...prev,
-      ...res.data,
-    }));
-
-  } catch (error) {
-    console.error("AI generation failed:", error);
-  }
-};
-
-useEffect(() => {
-  const fetchSoftware = async () => {
+  const generateContent = async (softwareName) => {
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/softwares/${id}`
+      const res = await axios.post(
+        "http://https://software-encyclopedia-2.onrender.com/api/ai-details/generate",
+        {
+          softwareName: softwareName,
+        },
       );
 
-      setSoftware(res.data);
-
-      if (!res.data.overview) {
-        // We don't necessarily need to wait for the AI to finish 
-        // before showing the basic UI, so we set loading to false here.
-        generateContent(res.data.SoftwareName);
-      }
-      
+      setSoftware((prev) => ({
+        ...prev,
+        ...res.data,
+      }));
     } catch (error) {
-      console.error(error);
-    } finally {
-      // ✅ THIS IS THE MISSING PIECE
-      setLoading(false); 
+      console.error("AI generation failed:", error);
     }
   };
 
-  fetchSoftware();
-}, [id]);
+  useEffect(() => {
+    const fetchSoftware = async () => {
+      try {
+        const res = await axios.get(
+          `http://https://software-encyclopedia-2.onrender.com/api/softwares/${id}`,
+        );
+
+        setSoftware(res.data);
+
+        if (!res.data.overview) {
+          // We don't necessarily need to wait for the AI to finish
+          // before showing the basic UI, so we set loading to false here.
+          generateContent(res.data.SoftwareName);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        // ✅ THIS IS THE MISSING PIECE
+        setLoading(false);
+      }
+    };
+
+    fetchSoftware();
+  }, [id]);
 
   if (loading) return <div className="loader">Loading...</div>;
   if (!software) return <div>Software not found</div>;
