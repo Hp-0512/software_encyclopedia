@@ -46,7 +46,7 @@ app.use("/api/reviews", require("./routes/reviews"));
 app.use("/api/reviewslist", require("./routes/reviewslist"));
 app.use("/api/ratings", require("./routes/ratings"));
 app.use("/api/ai", require("./routes/ai"));
-app.use("api/trending", require("./routes/trending"))
+app.use("/api/trending", require("./routes/trending"))
 
 //admin
 app.use("/api/adminprofile", require("./routes/AdminProfile"))
