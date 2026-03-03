@@ -8,7 +8,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import "../css/manageReviews.css";
+import "../CSS/manageReviews.css";
 
 const ManageReviews = () => {
   const [reviews, setReviews] = useState([]);
