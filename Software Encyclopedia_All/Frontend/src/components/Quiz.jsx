@@ -105,7 +105,7 @@ const Quiz = () => {
     }));
 
     const res = await axios.post(
-      "http://https://software-encyclopedia-2.onrender.com/api/quiz/generate-quiz",
+      "https://software-encyclopedia-2.onrender.com/api/quiz/generate-quiz",
       { categoryName: category.name, softwares },
     );
 

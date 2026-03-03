@@ -31,12 +31,8 @@ export default function Community() {
   /* ================= FETCH CATEGORIES & SOFTWARES ================= */
   useEffect(() => {
     Promise.all([
-      axios.get(
-        "http://https://software-encyclopedia-2.onrender.com/api/categories",
-      ),
-      axios.get(
-        "http://https://software-encyclopedia-2.onrender.com/api/softwares",
-      ),
+      axios.get("https://software-encyclopedia-2.onrender.com/api/categories"),
+      axios.get("https://software-encyclopedia-2.onrender.com/api/softwares"),
     ]).then(([catRes, softRes]) => {
       setCategories(catRes.data);
       setSoftwares(softRes.data);

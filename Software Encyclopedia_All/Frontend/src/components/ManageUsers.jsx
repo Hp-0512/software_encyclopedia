@@ -19,7 +19,7 @@ function ManageUsers() {
 
   const fetchUsers = () => {
     axios
-      .get("http://https://software-encyclopedia-2.onrender.com/api/users")
+      .get("https://software-encyclopedia-2.onrender.com/api/users")
       .then((res) => {
         setUsers(res.data);
         setLoading(false);
@@ -30,19 +30,6 @@ function ManageUsers() {
       });
   };
 
-  // const handleDelete = (id) => {
-  //   if (!window.confirm("Are you sure you want to delete this user?")) return;
-
-  //   axios
-  //     .delete(`http://https://software-encyclopedia-2.onrender.com/api/users/${id}`)
-  //     .then(() => {
-  //       setUsers(users.filter((user) => user.id !== id));
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error deleting user:", err);
-  //     });
-  // };
-
   const handleDeleteClick = (id) => {
     setSelectedUserId(id);
     setShowModal(true);
@@ -50,7 +37,7 @@ function ManageUsers() {
   const confirmDelete = () => {
     axios
       .delete(
-        `http://https://software-encyclopedia-2.onrender.com/api/users/${selectedUserId}`,
+        `https://software-encyclopedia-2.onrender.com/api/users/${selectedUserId}`,
       )
       .then(() => {
         setUsers(users.filter((user) => user.id !== selectedUserId));

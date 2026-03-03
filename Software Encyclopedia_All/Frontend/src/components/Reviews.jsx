@@ -7,7 +7,7 @@ const Reviews = () => {
 
   useEffect(() => {
     axios
-      .get("http://https://software-encyclopedia-2.onrender.com/api/reviews")
+      .get("https://software-encyclopedia-2.onrender.com/api/reviews")
       .then((res) => {
         console.log("REVIEWS API DATA 👉", res.data); // 👈 ADD THIS
         setReviews(res.data);

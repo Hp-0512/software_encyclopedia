@@ -15,7 +15,7 @@ const SoftwareDetails = () => {
   const generateContent = async (softwareName) => {
     try {
       const res = await axios.post(
-        "http://https://software-encyclopedia-2.onrender.com/api/ai-details/generate",
+        "https://software-encyclopedia-2.onrender.com/api/ai-details/generate",
         {
           softwareName: softwareName,
         },
@@ -34,7 +34,7 @@ const SoftwareDetails = () => {
     const fetchSoftware = async () => {
       try {
         const res = await axios.get(
-          `http://https://software-encyclopedia-2.onrender.com/api/softwares/${id}`,
+          `https://software-encyclopedia-2.onrender.com/api/softwares/${id}`,
         );
 
         setSoftware(res.data);

@@ -50,7 +50,7 @@ const ContactUs = () => {
         const base64 = reader.result.split(",")[1];
 
         const authRes = await fetch(
-          "http://https://software-encyclopedia-2.onrender.com/auth",
+          "https://software-encyclopedia-2.onrender.com/auth",
         );
         const authData = await authRes.json();
 
