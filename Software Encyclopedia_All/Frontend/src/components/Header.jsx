@@ -18,6 +18,8 @@ import "../CSS/Header.css";
 import UserProfilePanel from "./UserProfilePanel";
 import { FaUsers } from "react-icons/fa";
 
+import Trie from "../utils/trie";
+
 const Header = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -27,6 +29,9 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const user = auth.currentUser;
+
+  const [suggestions, setSuggestions] = useState([]);
+  const [trie, setTrie] = useState(null);
 
   useEffect(() => {
     if (!user) return;
@@ -55,10 +60,50 @@ const Header = () => {
     fetchData();
   }, [user]);
 
-  const handleSearch = (e) => {
-    if (e.key === "Enter" && search.trim()) {
-      navigate(`/softwares?search=${search}`);
+  useEffect(() => {
+    const loadSoftwares = async () => {
+      try {
+        const snap = await getDocs(collection(db, "Softwares"));
+
+        const softwareNames = [];
+
+        snap.forEach((doc) => {
+          const data = doc.data();
+
+          // ✅ CORRECT FIELD NAME
+          if (data.SoftwareName) {
+            softwareNames.push(data.SoftwareName);
+          }
+        });
+
+        const newTrie = new Trie();
+
+        softwareNames.forEach((name) => newTrie.insert(name.toLowerCase()));
+
+        console.log("Inserted words:", softwareNames); // debug
+
+        setTrie(newTrie);
+      } catch (error) {
+        console.error("Error loading softwares for search:", error);
+      }
+    };
+
+    loadSoftwares();
+  }, []);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+
+    if (!trie || value.trim() === "") {
+      setSuggestions([]);
+      return;
     }
+
+    const results = trie.searchPrefix(value.toLowerCase()).slice(0, 5);
+    setSuggestions(results);
+    console.log("Trie state:", trie);
+    console.log("Searching:", value);
   };
 
   return (
@@ -99,12 +144,29 @@ const Header = () => {
         <div className="header-actions">
           <div className="header-search">
             🔍
-            <input
+            {/* <input
               placeholder="Search software..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               onKeyDown={handleSearch}
+            /> */}
+            <input
+              placeholder="Search software..."
+              value={search}
+              onChange={handleSearchChange}
             />
+            {suggestions.length > 0 && (
+              <div className="search-suggestions">
+                {suggestions.map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={() => navigate(`/softwares?search=${item}`)}
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* PROFILE AVATAR WITH INITIAL */}

@@ -215,6 +215,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  position: relative;
 }
 
 .header-search input {
@@ -374,4 +375,25 @@
   margin-right: 6px;
   font-size: 15px;
   vertical-align: middle;
+}
+.search-suggestions {
+  position: absolute;
+  top: 45px;
+  width: 220px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  overflow: hidden;
+  z-index: 999;
+}
+
+.search-suggestions div {
+  padding: 10px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #1f255a;
+}
+
+.search-suggestions div:hover {
+  background: #f4f6fb;
 }
