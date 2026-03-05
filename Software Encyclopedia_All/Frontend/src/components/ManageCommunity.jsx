@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../CSS/ManageCommunity.css";
 import { getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function ManageCommunity() {
   const [members, setMembers] = useState([]);
