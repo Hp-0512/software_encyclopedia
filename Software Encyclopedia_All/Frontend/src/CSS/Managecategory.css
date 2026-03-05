@@ -181,7 +181,6 @@ h2 {
 }
 
 .edit-icon {
-  width: 10px;
   padding: 5px;
   border: 1px solid green;
   border-radius: 7px;
@@ -192,7 +191,6 @@ h2 {
 }
 
 .delete-icon {
-  width: 10px;
   padding: 7px;
   border: 1px solid red;
   border-radius: 5px;
