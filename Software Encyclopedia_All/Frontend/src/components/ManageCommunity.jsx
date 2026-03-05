@@ -91,10 +91,10 @@ export default function ManageCommunity() {
                   Please select category
                 </td>
               </tr>
-            ) : filteredSoftwares.length === 0 ? (
+            ) : currentMembers.length === 0 ? (
               <tr>
                 <td colSpan="4" className="message-row">
-                  No software found
+                  No User found
                 </td>
               </tr>
             ) : (
