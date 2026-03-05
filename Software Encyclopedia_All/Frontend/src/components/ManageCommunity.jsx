@@ -63,7 +63,7 @@ export default function ManageCommunity() {
       <div className="community-header">
         <div className="filter-section">
           <select onChange={handleChange} value={categoryId}>
-            <option value="">All Categories</option>
+            <option value="">-- Select Category --</option>
             {categories.map((cat) => (
               <option key={cat.id} value={cat.id}>
                 {cat.Name}
@@ -84,24 +84,40 @@ export default function ManageCommunity() {
             </tr>
           </thead>
           <tbody>
-            {currentMembers.map((member, index) => (
-              <tr key={member.id}>
-                <td>{indexOfFirst + index + 1}</td>
-                <td>{member.username}</td>
-                <td>{member.email}</td>
-                <td>
-                  <span className="category-badge">{member.categoryName}</span>
-                </td>
-                <td>
-                  <button
-                    className="remove-btn"
-                    onClick={() => setSelectedId(member.id)}
-                  >
-                    Remove
-                  </button>
+            {categoryId === "" ? (
+              <tr>
+                <td colSpan="4" className="message-row">
+                  Please select category
                 </td>
               </tr>
-            ))}
+            ) : filteredSoftwares.length === 0 ? (
+              <tr>
+                <td colSpan="4" className="message-row">
+                  No software found
+                </td>
+              </tr>
+            ) : (
+              currentMembers.map((member, index) => (
+                <tr key={member.id}>
+                  <td>{indexOfFirst + index + 1}</td>
+                  <td>{member.username}</td>
+                  <td>{member.email}</td>
+                  <td>
+                    <span className="category-badge">
+                      {member.categoryName}
+                    </span>
+                  </td>
+                  <td>
+                    <button
+                      className="remove-btn"
+                      onClick={() => setSelectedId(member.id)}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
 
