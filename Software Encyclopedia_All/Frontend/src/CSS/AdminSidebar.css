@@ -73,7 +73,12 @@
   /* width: calc(100% - 250px); */
   width: 300px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #293073, #1f255a);
+  background: linear-gradient(
+    230deg,
+    var(--primary-dark),
+    var(--accent),
+    #1f255a 100%
+  );
   padding: 28px 20px;
 }
 
