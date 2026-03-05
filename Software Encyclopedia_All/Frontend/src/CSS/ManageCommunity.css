@@ -4,6 +4,26 @@
   min-height: 100vh;
 }
 
+.community-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: -25px;
+}
+
+.community-header h2 {
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+.filter-section select {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
 .community-title {
   margin-bottom: 20px;
   font-weight: 600;

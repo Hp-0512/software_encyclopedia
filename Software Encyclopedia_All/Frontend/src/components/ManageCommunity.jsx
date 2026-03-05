@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../CSS/ManageCommunity.css";
+import { getDocs } from "firebase/firestore";
 
 export default function ManageCommunity() {
   const [members, setMembers] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
   // ✅ Pagination states
@@ -18,8 +21,18 @@ export default function ManageCommunity() {
   };
 
   useEffect(() => {
+    fetchCategories();
     fetchMembers();
   }, []);
+
+  const fetchCategories = async () => {
+    const snap = await getDocs(collection(db, "Categories"));
+    const data = snap.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    }));
+    setCategories(data);
+  };
 
   const confirmRemove = async () => {
     try {
@@ -33,6 +46,12 @@ export default function ManageCommunity() {
     }
   };
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setCategoryId(value);
+    fetchMembers(value);
+  };
+
   // ✅ Pagination calculations
   const indexOfLast = currentPage * membersPerPage;
   const indexOfFirst = indexOfLast - membersPerPage;
@@ -41,6 +60,18 @@ export default function ManageCommunity() {
 
   return (
     <div className="community-container">
+      <div className="community-header">
+        <div className="filter-section">
+          <select onChange={handleChange} value={categoryId}>
+            <option value="">All Categories</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.Name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
       <div className="table-wrapper">
         <table className="community-table">
           <thead>
