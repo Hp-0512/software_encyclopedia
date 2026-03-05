@@ -340,6 +340,26 @@ const ManageSoftware = () => {
               )}
 
               <input
+                name="Version"
+                placeholder="Version"
+                value={formData.Version}
+                onChange={handleChange}
+              />
+              {errors.Version && (
+                <small style={{ color: "red" }}>{errors.Version}</small>
+              )}
+
+              <input
+                name="Version"
+                placeholder="Version"
+                value={formData.Version}
+                onChange={handleChange}
+              />
+              {errors.Version && (
+                <small style={{ color: "red" }}>{errors.Version}</small>
+              )}
+
+              <input
                 name="LogoUrl"
                 placeholder="Logo URL"
                 value={formData.LogoUrl}
