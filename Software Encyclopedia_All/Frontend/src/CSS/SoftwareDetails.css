@@ -1,42 +1,83 @@
+/* ================= BASE / MOBILE FIRST ================= */
 .details-container {
+  width: 100%;
   max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
+  margin: 0 auto;
+  padding: 20px 16px;
   background: #f8f9fb;
+  box-sizing: border-box;
 }
 
 /* HERO SECTION */
 .details-hero {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 16px;
   align-items: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 28px;
 }
 
 .details-hero img {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   background: white;
-  padding: 12px;
-  border-radius: 20px;
+  padding: 8px;
+  border-radius: 12px;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+.details-hero > div {
+  width: 100%;
+}
+
+.details-hero h1 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--primary-dark);
+  word-wrap: break-word;
+}
+
+.details-hero p {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* CONTENT */
+.details-content {
+  width: 100%;
+}
+
 .details-content section {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .details-content h2 {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
   color: var(--primary-dark);
 }
 
 .details-content p {
-  line-height: 1.8;
-  font-size: 15px;
+  line-height: 1.7;
+  font-size: 0.9375rem;
   color: #444;
+  margin-bottom: 12px;
+}
+
+.details-content ul,
+.details-content ol {
+  margin-left: 16px;
+  margin-bottom: 12px;
+}
+
+.details-content li {
+  margin-bottom: 8px;
+  color: #555;
+  line-height: 1.7;
 }
 
 /* PREVENT HORIZONTAL SCROLL */
@@ -44,23 +85,167 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .details-hero {
-    flex-direction: column;
-    text-align: center;
+* {
+  box-sizing: border-box;
+}
+
+/* ================= SMALL TABLETS (480px+) ================= */
+@media (min-width: 480px) {
+  .details-container {
+    padding: 24px 18px;
   }
 
   .details-hero img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    border-radius: 14px;
   }
 
+  .details-hero h1 {
+    font-size: 1.625rem;
+  }
+
+  .details-hero p {
+    font-size: 0.9375rem;
+  }
+
+  .details-content h2 {
+    font-size: 1.375rem;
+  }
+}
+
+/* ================= TABLETS (768px+) ================= */
+@media (min-width: 768px) {
   .details-container {
-    padding: 30px 15px;
+    padding: 32px 24px;
+  }
+
+  /* Hero layout becomes horizontal */
+  .details-hero {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .details-hero img {
+    width: 120px;
+    height: 120px;
+    padding: 12px;
+    border-radius: 16px;
+    flex-shrink: 0;
+  }
+
+  .details-hero > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .details-hero h1 {
+    font-size: 1.875rem;
+    margin-bottom: 10px;
+  }
+
+  .details-hero p {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .details-content section {
+    margin-bottom: 32px;
+  }
+
+  .details-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
   }
 
   .details-content p {
-    font-size: 14px;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+}
+
+/* ================= LARGE TABLETS / SMALL DESKTOPS (1024px+) ================= */
+@media (min-width: 1024px) {
+  .details-container {
+    padding: 40px 32px;
+  }
+
+  .details-hero {
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .details-hero img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .details-hero h1 {
+    font-size: 2rem;
+  }
+
+  .details-hero p {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .details-content section {
+    margin-bottom: 40px;
+  }
+
+  .details-content h2 {
+    font-size: 1.625rem;
+    margin-bottom: 16px;
+  }
+
+  .details-content p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+}
+
+/* ================= LARGE DESKTOPS (1200px+) ================= */
+@media (min-width: 1200px) {
+  .details-container {
+    padding: 48px 40px;
+  }
+
+  .details-hero {
+    gap: 56px;
+    margin-bottom: 56px;
+  }
+
+  .details-hero img {
+    width: 160px;
+    height: 160px;
+    padding: 14px;
+  }
+
+  .details-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .details-hero p {
+    font-size: 1.125rem;
+  }
+
+  .details-content section {
+    margin-bottom: 48px;
+  }
+
+  .details-content h2 {
+    font-size: 1.875rem;
+  }
+
+  .details-content p {
+    font-size: 1.125rem;
+    margin-bottom: 18px;
   }
 }
