@@ -303,3 +303,43 @@ h2 {
     opacity: 1;
   }
 }
+
+/* ===== TABLE RESPONSIVE FIX ===== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .manage-container {
+    padding: 15px;
+  }
+
+  .top-bar {
+    text-align: left;
+  }
+
+  .add-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .category-table {
+    min-width: 650px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .category-table {
+    min-width: 700px;
+  }
+
+  .edit-icon,
+  .delete-icon {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+}
