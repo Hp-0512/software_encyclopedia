@@ -11,10 +11,17 @@
   width: 100%;
 }
 
-.admin-main {
-  flex: 1;
-  padding: 30px 40px;
+.table-wrapper {
   width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  min-width: 700px;
+}
+.admin-main {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .open-btn {
