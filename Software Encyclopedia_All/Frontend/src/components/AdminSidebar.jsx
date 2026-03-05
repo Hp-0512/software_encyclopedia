@@ -1,58 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/AdminSidebar.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const AdminSidebar = () => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const handleLogout = () => {
-    // 1️⃣ Clear authentication data
-    localStorage.removeItem("authToken"); // or "user"
+    localStorage.removeItem("authToken");
     localStorage.removeItem("role");
-
-    // If using Firebase later:
-    // signOut(auth);
-
-    // 2️⃣ Redirect to Auth page
     navigate("/");
   };
 
   return (
-    <div className="admin-sidebar">
-      <h2>Admin Panel</h2>
+    <>
+      {/* Mobile Toggle Button */}
+      <button className="menu-toggle" onClick={() => setOpen(!open)}>
+        ☰
+      </button>
 
-      <ul>
-        <li>
-          <Link to="/admin">📊 Overview</Link>
-        </li>
+      <div className={`admin-sidebar ${open ? "active" : ""}`}>
+        <h2>Admin Panel</h2>
 
-        <li>
-          <Link to="/admin/manage-users">👥 User Management</Link>
-        </li>
+        <ul>
+          <li>
+            <Link to="/admin">📊 Overview</Link>
+          </li>
 
-        <li>
-          <Link to="/admin/manage-categories">🗂 Category Management</Link>
-        </li>
+          <li>
+            <Link to="/admin/manage-users">👥 User Management</Link>
+          </li>
 
-        <li>
-          <Link to="/admin/manage-softwares">💻 Software Directory</Link>
-        </li>
+          <li>
+            <Link to="/admin/manage-categories">🗂 Category Management</Link>
+          </li>
 
-        <li>
-          <Link to="/admin/managereviews">⭐ Review Moderation</Link>
-        </li>
-        <li>
-          <Link to="/admin/manageresult">🧠 Quiz Analytics </Link>
-        </li>
-        <li>
-          <Link to="/admin/community">🌐 Community Hub</Link>
-        </li>
+          <li>
+            <Link to="/admin/manage-softwares">💻 Software Directory</Link>
+          </li>
 
-        <li className="logout" onClick={handleLogout}>
-          🚪 Sign Out
-        </li>
-      </ul>
-    </div>
+          <li>
+            <Link to="/admin/managereviews">⭐ Review Moderation</Link>
+          </li>
+
+          <li>
+            <Link to="/admin/manageresult">🧠 Quiz Analytics</Link>
+          </li>
+
+          <li>
+            <Link to="/admin/community">🌐 Community Hub</Link>
+          </li>
+
+          <li className="logout" onClick={handleLogout}>
+            🚪 Sign Out
+          </li>
+        </ul>
+      </div>
+    </>
   );
 };
 

@@ -178,3 +178,20 @@
   background: #2c3e50;
   color: white;
 }
+
+@media (max-width: 768px) {
+  .community-container {
+    padding: 20px;
+  }
+
+  .community-table th,
+  .community-table td {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .remove-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
