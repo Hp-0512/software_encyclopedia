@@ -91,48 +91,49 @@ const ManageCategory = () => {
           + Add Category
         </button>
       </div>
-
-      <table className="category-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th style={{ textAlign: "center" }}>Actions</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {currentCategories.map((cat) => (
-            <tr key={cat.id}>
-              <td>{cat.Name}</td>
-              <td>{cat.Description}</td>
-              <td className="action-icons">
-                <span
-                  className="edit-icon"
-                  onClick={() => {
-                    setCategoryName(cat.Name);
-                    setCategoryDescription(cat.Description);
-                    setEditId(cat.id);
-                    setShowAddModal(true);
-                  }}
-                >
-                  Edit ✏️
-                </span>
-
-                <span
-                  className="delete-icon"
-                  onClick={() => {
-                    setDeleteId(cat.id);
-                    setShowDeleteModal(true);
-                  }}
-                >
-                  Delete 🗑
-                </span>
-              </td>
+      <div className="table-wrapper">
+        <table className="category-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th style={{ textAlign: "center" }}>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {currentCategories.map((cat) => (
+              <tr key={cat.id}>
+                <td>{cat.Name}</td>
+                <td>{cat.Description}</td>
+                <td className="action-icons">
+                  <span
+                    className="edit-icon"
+                    onClick={() => {
+                      setCategoryName(cat.Name);
+                      setCategoryDescription(cat.Description);
+                      setEditId(cat.id);
+                      setShowAddModal(true);
+                    }}
+                  >
+                    Edit ✏️
+                  </span>
+
+                  <span
+                    className="delete-icon"
+                    onClick={() => {
+                      setDeleteId(cat.id);
+                      setShowDeleteModal(true);
+                    }}
+                  >
+                    Delete 🗑
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Pagination */}
       <div className="pagination">
