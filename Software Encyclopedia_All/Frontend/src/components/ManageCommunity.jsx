@@ -8,6 +8,7 @@ export default function ManageCommunity() {
   const [members, setMembers] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState("");
+  const [allMembers, setAllMembers] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
 
   // ✅ Pagination states
@@ -18,6 +19,8 @@ export default function ManageCommunity() {
     const res = await axios.get(
       "https://software-encyclopedia-2.onrender.com/api/community/members",
     );
+
+    setAllMembers(res.data);
     setMembers(res.data);
   };
 
@@ -50,7 +53,17 @@ export default function ManageCommunity() {
   const handleChange = (e) => {
     const value = e.target.value;
     setCategoryId(value);
-    fetchMembers(value);
+
+    if (value === "") {
+      setMembers(allMembers);
+    } else {
+      const filtered = allMembers.filter(
+        (member) => member.categoryId === value,
+      );
+      setMembers(filtered);
+    }
+
+    setCurrentPage(1); // reset pagination
   };
 
   // ✅ Pagination calculations
